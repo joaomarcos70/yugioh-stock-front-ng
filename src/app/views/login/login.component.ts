@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   sendtoBack() {
     this.loginservice.verifyLogin(this.body).subscribe(res => {
-      this.router.navigate(['/teste'])
+      this.router.navigate(['/home'])
     })
   }
 }

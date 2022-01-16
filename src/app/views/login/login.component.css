@@ -1,5 +1,15 @@
 
 /* BASIC */
+  
+  [nz-button] {
+    color: white;
+    width: large;
+    height: 40px;
+    width: 200px;
+    background-color: #343D46;
+    border-radius: 8px;
+    outline: auto;
+  }
 
 html {
     background-color: #56baed;
