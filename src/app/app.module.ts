@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
 import { HomeComponent } from './views/home/home.component';
+import { BaseComponent } from './shared/components/base/base.component';
 
 registerLocaleData(pt);
 
@@ -21,7 +22,8 @@ registerLocaleData(pt);
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    BaseComponent
   ],
   imports: [
     BrowserModule,
