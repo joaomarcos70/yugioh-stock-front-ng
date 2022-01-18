@@ -16,6 +16,13 @@ nz-content{
    color: #ffffff;
 }
 
+.iconButtonHeader{
+   border-color:transparent;
+   background-color: transparent;
+   height: 48px;
+   width: 48px;
+}
+
 .middleInputHeader{
    text-align: left;
    color: #ffffff;
@@ -40,4 +47,9 @@ nz-content{
 .rightBtnHeader{
    text-align: right;
    color: #ffffff;
+}
+
+.headerIconStyle{
+   width: 24px;
+   height: 24px;
 }

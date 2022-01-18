@@ -3,15 +3,17 @@
     <nz-header>
       <div nz-row>
         <div nz-col nzSpan="6" nzAlign="center" class="leftBtnHeader">
-          <i [ngClass]="leftIconClass"></i>
+          <button class="iconButtonHeader" nz-button nzType="primary" [nzSize]="size">
+            <i class="headerIconStyle" [ngClass]="leftIconClass"></i></button>
         </div>
 
         <div nz-col nzSpan="12" class="middleInputHeader">
-            {{middleInputHeader}}
+          {{middleInputHeader}}
         </div>
 
-        <div nz-col nzSpan="6" class="rightBtnHeader">
-          <i [ngClass]="rightIconClass"></i>
+        <div nz-col nzSpan="6" nzAlign="center" class="rightBtnHeader">
+          <button class="iconButtonHeader" nz-button nzType="primary" [nzSize]="size"><i
+              [ngClass]="rightIconClass"></i></button>
         </div>
 
       </div>

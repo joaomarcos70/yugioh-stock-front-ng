@@ -15,6 +15,7 @@ import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
 import { HomeComponent } from './views/home/home.component';
 import { BaseComponent } from './shared/components/base/base.component';
+import { SearchCardComponent } from './views/search-card/search-card.component';
 
 registerLocaleData(pt);
 
@@ -23,7 +24,8 @@ registerLocaleData(pt);
     AppComponent,
     LoginComponent,
     HomeComponent,
-    BaseComponent
+    BaseComponent,
+    SearchCardComponent
   ],
   imports: [
     BrowserModule,

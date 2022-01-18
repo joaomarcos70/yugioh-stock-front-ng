@@ -1,0 +1,25 @@
+.foundCard{
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 50%;
+}
+
+.cardSearchBg{
+    height: 200px;
+    background-color: #303036;
+    border-radius: 8px;
+    padding-left: 23px;
+    padding-top: 16px;
+    padding-right: 24px;
+}
+
+.imgCard{
+    height: 128px;
+    border-radius: 4px;
+}
+
+.cardRowConfig{
+    padding-bottom:16px;
+    padding-right: 16px;
+}
+
