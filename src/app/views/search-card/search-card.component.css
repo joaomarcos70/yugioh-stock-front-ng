@@ -29,12 +29,19 @@
 }
 
 .leftBtnCard{
+    
     height: 1.5rem;
     width: 5.5rem;
     background-color: #4F5B67;
     color: #ffffff;
-}.leftIcon{
+    border-color: transparent;
     text-align: left;
+    font-size: 0.625rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}.leftIcon{
+    text-align: right;
 }
 
 .rightBtnCard{
@@ -43,6 +50,10 @@
     background-color: #4F5B67;
     margin-right: 0.5rem;
     color: #ffffff;
+    font-size: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }.rightIcon{
     text-align: center;
 }

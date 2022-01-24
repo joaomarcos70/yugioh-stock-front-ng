@@ -2,98 +2,44 @@
 
     <div class="rowConfig">
         <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input class="inputText" type="text" nz-input placeholder="input search text" />
+            <input class="inputText" [(ngModel)]="params.fname" type="text" nz-input  placeholder="input search text" />
         </nz-input-group>
         <ng-template #suffixIconSearch>
-            <i class="iconTextSearch" nz-icon nzType="search"></i>
+            <i class="iconTextSearch" nz-icon (click)="searchCards()" nzType="search"></i>
         </ng-template>
     </div>
-    <div class="rowConfig">
-        <p class="foundCard">12 encontradas</p>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-6 col-sm-6 col-md-3 gx-2 gy-3" style="height: 12.5rem;">
-                <div class="card cardSearchBg" style="width: 8.5rem;">
-                    <div class="gy-3 card-body">
-                        <img class="imgCard" src="../../shared/assets/teste1.png">
-                    </div>
-                    <div class="lineCard">
-                        <div class="row">
-                            <div class="col-8 col-sm-8 col-md-8 gx-2">
-                                <button type="button" class="btn leftBtnCard">
-                                  <i class="ph-folder-notch-plus-bold leftIcon"></i></button>
-                            </div>
-                            <div class="col-4 col-sm-4 col-md-4">
-                                <button type="button" class="btn rightBtnCard"><i
-                                        class="ph-folder-notch-plus-bold rightIcon"></i></button>
+    <div *ngIf="cards && cards.length > 0">
+        <div class="rowConfig">
+            <p class="foundCard">{{foundCards}} Carta(s) encontradas</p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-3 gx-2 gy-3" style="height: 12.5rem;"
+                *ngFor="let card of cards | paginate: { itemsPerPage: cardSearchModel.limit, currentPage: currentPage, totalItems: foundCards }">
+                    <div class="card cardSearchBg" style="width: 8.5rem;">
+                        <div class="gy-3 card-body">
+                            <img class="imgCard"
+                                src="{{card.card_images[0].image_url}}">
+                        </div>
+                        <div class="lineCard">
+                            <div class="row">
+                                <div class="col-8 col-sm-8 col-md-8 gx-2">
+                                    <button type="button" class="btn btn-light leftBtnCard">
+                                        <i class="ph-folder-notch-plus-bold leftIcon"></i>Coleção</button>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-4">
+                                    <button type="button" class="btn rightBtnCard"><i
+                                            class="ph-heart-straight-bold rightIcon"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-6 col-sm-6 col-md-3 gx-2 gy-3" style="height: 12.5rem;">
-                <div class="card cardSearchBg" style="width: 8.5rem;">
-                    <div class="gy-3 card-body">
-                        <img class="imgCard" src="../../shared/assets/teste1.png">
-                    </div>
-                    <div class="lineCard">
-                        <div class="row">
-                            <div class="col-8 col-sm-8 col-md-8 gx-2">
-                                <button type="button" class="btn leftBtnCard">
-                                  <i class="ph-folder-notch-plus-bold leftIcon"></i></button>
-                            </div>
-                            <div class="col-4 col-sm-4 col-md-4">
-                                <button type="button" class="btn rightBtnCard"><i
-                                        class="ph-folder-notch-plus-bold rightIcon"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-3 gx-2 gy-3" style="height: 12.5rem;">
-                <div class="card cardSearchBg" style="width: 8.5rem;">
-                    <div class="gy-3 card-body">
-                        <img class="imgCard" src="../../shared/assets/teste1.png">
-                    </div>
-                    <div class="lineCard">
-                        <div class="row">
-                            <div class="col-8 col-sm-8 col-md-8 gx-2">
-                                <button type="button" class="btn leftBtnCard">
-                                  <i class="ph-folder-notch-plus-bold leftIcon"></i></button>
-                            </div>
-                            <div class="col-4 col-sm-4 col-md-4">
-                                <button type="button" class="btn rightBtnCard"><i
-                                        class="ph-folder-notch-plus-bold rightIcon"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-6 col-md-3 gx-2 gy-3" style="height: 12.5rem;">
-                <div class="card cardSearchBg" style="width: 8.5rem;">
-                    <div class="gy-3 card-body">
-                        <img class="imgCard" src="../../shared/assets/teste1.png">
-                    </div>
-                    <div class="lineCard">
-                        <div class="row">
-                            <div class="col-8 col-sm-8 col-md-8 gx-2">
-                                <button type="button" class="btn leftBtnCard">
-                                  <i class="ph-folder-notch-plus-bold leftIcon"></i></button>
-                            </div>
-                            <div class="col-4 col-sm-4 col-md-4">
-                                <button type="button" class="btn rightBtnCard"><i
-                                        class="ph-folder-notch-plus-bold rightIcon"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
+
 
 </app-base>

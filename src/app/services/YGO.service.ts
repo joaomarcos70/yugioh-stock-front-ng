@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { cardSearch } from '../models/CardSearch.model';
+import { RootObject, CardInterface } from '../interfaces/cardSearch.interface'
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 
-@Injectable()
-export class ConfigService {
+@Injectable({ providedIn: 'root' })
+export class YGOservice {
+    constructor(private http: HttpClient
+    ) { }
 
-    baseUrl: string = environment.apiBaseUrl;
-
-    constructor(private http: HttpClient) { }
+    apiYgo: string = environment.apiYgo;
 
     private handleError(error: HttpErrorResponse) {
         if (error.status === 0) {
@@ -23,15 +25,15 @@ export class ConfigService {
             'Something bad happened; please try again later.');
     }
 
+    get(query:CardInterface) {
+        let params = new HttpParams()
 
-
-    post(endPoint: String, body) {
-        return this.http.post(this.baseUrl + endPoint, body)
+        Object.keys(query).forEach(function (key) {
+            params = params.append(key, query[key])
+        })
+        return this.http.get<RootObject>(this.apiYgo, { params: params })
             .pipe(
                 catchError(this.handleError)
             );
-
     }
-
-
 }
