@@ -1,33 +1,41 @@
-nz-header{
+.header{
    background-color:#23232E;
-   height: 72px;
-   padding-left: 16px;
-   padding-top: 12px;
-   padding-right: 16px;
+   height: 4.5rem;
+   padding-left: 1rem;
+   padding-top: 0.75rem;
+   padding-right: 1rem;
    width: 100%;
    color: #ffffff;
+   display: flex;
+   justify-content: space-between;
 }
 
-nz-content{
+.rowConfigHeader{
+   width: 100%;
+   display: flex;
+   align-items: center;
+}
+
+.content{
    background-color:#23232E;
-   padding-right: 16px;
-   padding-left: 16px;
+   padding-right: 1rem;
+   padding-left: 1rem;
    color: #ffffff;
 }
 
 .iconButtonHeader{
    border-color:transparent;
    background-color: transparent;
-   height: 48px;
-   width: 48px;
+   height: 3rem;
+   width: 3rem;
+   align-items: center;
 }
 
 .middleInputHeader{
-   text-align: left;
+   text-align: center;
    color: #ffffff;
    font-weight: 700;
    font-size: 1.25rem;
-   width: 13rem;
 }
 
 .background{
@@ -51,6 +59,10 @@ nz-content{
 }
 
 .headerIconStyle{
-   width: 24px;
-   height: 24px;
+   width: 1.5rem;
+   height: 1.5rem;
+   color: #ffffff;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }

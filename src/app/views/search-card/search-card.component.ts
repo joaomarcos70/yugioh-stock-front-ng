@@ -16,6 +16,7 @@ export class SearchCardComponent implements OnInit {
   params: CardInterface = { fname: 'fluffal' };
   nameOfCard: string
   foundCards: number = 0
+  txtFoundCards: string ='';
 
   itemsPerPage: number[] = [10, 50, 100];
   totalItems: number = 0;
@@ -37,7 +38,16 @@ export class SearchCardComponent implements OnInit {
 
       this.YgoService.get(this.params).subscribe(res => {
         this.cards = res.data
+        
         this.foundCards = res.data.length
+
+        if(this.foundCards == 0 ){
+          this.txtFoundCards ='Nenhuma carta encontrada'
+        }else if(this.foundCards > 1){
+          this.txtFoundCards = this.foundCards + ' cartas encontradas'
+        } else {
+          this.txtFoundCards = this.foundCards + ' carta encontrada'
+        }
       })
 
   }
