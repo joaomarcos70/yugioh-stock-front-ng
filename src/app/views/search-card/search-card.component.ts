@@ -3,6 +3,8 @@ import _ from 'lodash'
 import { cardSearch } from 'src/app/models/CardSearch.model';
 import { YGOservice } from 'src/app/services/YGO.service';
 import { CardInterface } from 'src/app/interfaces/cardSearch.interface';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-search-card',
   templateUrl: './search-card.component.html',
@@ -24,7 +26,8 @@ export class SearchCardComponent implements OnInit {
 
 
 
-  constructor(private YgoService: YGOservice) { }
+  constructor(private YgoService: YGOservice,
+    private router:Router) { }
 
   async ngOnInit() {
     this.searchCards()
@@ -41,6 +44,11 @@ export class SearchCardComponent implements OnInit {
       console.log(error);
     }
 
+  }
+
+  addCollection(index){
+    let cardId = this.cards[index].id
+    this.router.navigate([`/add-collection/${cardId}`])
   }
 
   show() {

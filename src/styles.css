@@ -17,6 +17,32 @@
     border-color: transparent;
 }
 
+.fullInputSelect{
+    position: relative;
+    display: inline-block;
+    height: 2.5rem;
+    width: 100%;
+    background-color: #343D46;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    font-weight: 400;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    color: #ffffff
+}
+
+.inputSelect{
+    position: relative;
+    display: inline-block;
+    height: 2.5rem;
+    width: 100%;
+    background-color: #343D46;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    font-weight: 400;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    color: #ffffff
+}
+
 .iconTextSearch{
     color: #ffffff;
     font-style: normal;

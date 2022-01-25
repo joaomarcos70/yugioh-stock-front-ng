@@ -18,6 +18,7 @@ import { BaseComponent } from './shared/components/base/base.component';
 import { SearchCardComponent } from './views/search-card/search-card.component';
 import { YGOservice } from './services/YGO.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AddCollectionComponent } from './views/add-collection/add-collection.component';
 
 
 registerLocaleData(pt);
@@ -28,7 +29,8 @@ registerLocaleData(pt);
     LoginComponent,
     HomeComponent,
     BaseComponent,
-    SearchCardComponent
+    SearchCardComponent,
+    AddCollectionComponent
   ],
   imports: [
     BrowserModule,

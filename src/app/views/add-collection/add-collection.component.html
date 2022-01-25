@@ -1,0 +1,70 @@
+<app-base middleInputHeader="" leftIconClass='ph-arrow-left-bold' rightIconClass='ph-funnel-simple-bold'>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-4 btn-group gy-3">
+        <img class="imgToAdd" src="">
+      </div>
+      <div class="col-8 btn-group gy-3">
+        <select class="fullInputSelect" [(ngModel)]="rarityList">
+          <option value="0">Selecione a raridade</option>
+          <option [ngValue]="rarity" *ngFor="let rarity of rarityList">{{commonHelper.transcriptRarityCards(rarity)}}</option>
+        </select>
+      </div>
+
+    </div>
+    
+    <div class="row">
+      <div class="col-12 btn-group gy-3">
+        <select class="fullInputSelect" [(ngModel)]="rarityList">
+          <option value="0">Selecione a raridade</option>
+          <option [ngValue]="rarity" *ngFor="let rarity of rarityList">{{commonHelper.transcriptRarityCards(rarity)}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 btn-group gy-3">
+        <select class="fullInputSelect">
+          <option value="1">Pendente de Aprovação</option>
+          <option value="2">Pendente de Pagamento</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 btn-group gy-3">
+        <select class="fullInputSelect">
+          <option value="1">Pendente de Aprovação</option>
+          <option value="2">Pendente de Pagamento</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-6 gy-3">
+        <div class="countBtn">
+          <div class="col-4 text-center">
+            <span>R$</span>
+          </div>
+          <div class="col-8 text-left">
+            <input class="inputCountBtn" [(ngModel)]="countCard" type="number">
+          </div>   
+        </div>
+      </div>
+
+      <div class="col-6 gy-3">
+        <div class="countBtn">
+          <div class="col-4 text-center">
+            <span><i class="ph-minus-bold" (click)="decrementCountCard()"></i></span>
+          </div>
+          <div class="col-4 text-center">
+            <input class="inputCountBtn" max="99" [(ngModel)]="countCard" type="number">
+          </div>
+          <div class="col-4 text-center" >
+            <span><i class="ph-plus-bold" (click)="incrementCountCard()"></i></span>
+          </div>   
+        </div>
+      </div>
+
+    </div>
+  </div>
+</app-base>
