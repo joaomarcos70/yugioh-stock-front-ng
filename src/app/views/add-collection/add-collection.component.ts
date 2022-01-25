@@ -18,8 +18,10 @@ export class AddCollectionComponent implements OnInit {
   card: CardInterface = { card_images: [{ image_url: '' }] };
   commonHelper: commonHelper = new commonHelper()
   rarityList: any[] = []
-  selectedRarity: number = null
+  languageList: any[] = []
 
+  selectedRarity: number = null
+  selectedLanguage: number = null
 
   constructor(private route: ActivatedRoute,
     private ygoService: YGOservice
@@ -33,6 +35,7 @@ export class AddCollectionComponent implements OnInit {
     })
 
     this.rarityList = this.commonHelper.getAllRarityCards();
+    this.languageList = this.commonHelper.getAllLanguageCards();
 
 
   }

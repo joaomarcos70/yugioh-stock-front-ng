@@ -37,10 +37,10 @@
         </div>
         <div class="row">
             <div class="col-12 btn-group gy-3">
-                <select class="fullInputSelect" [(ngModel)]="selectedRarity">
-                    <option value="null">Raridade</option>
-                    <option [ngValue]="rarity" *ngFor="let rarity of rarityList">
-                        {{ commonHelper.transcriptRarityCards(rarity) }}
+                <select class="fullInputSelect" [(ngModel)]="selectedLanguage">
+                    <option value="null">Idioma</option>
+                    <option [ngValue]="language" *ngFor="let language of languageList">
+                        {{ commonHelper.transcriptLanguageCards(language) }}
                     </option>
                 </select>
             </div>

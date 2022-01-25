@@ -1,7 +1,40 @@
+import { LanguageCard } from "../enums/languageCard.enum";
 import { RarityCard } from "../enums/rarityCard.enum";
 
 export class commonHelper {
 
+    getAllLanguageCards(): LanguageCard[]{
+        return [
+            LanguageCard.ALEMAO,
+            LanguageCard.ESPANHOL,
+            LanguageCard.FRANCES,
+            LanguageCard.INGLES,
+            LanguageCard.ITALIANO,
+            LanguageCard.PORTUGUES
+        ]
+    }
+
+    transcriptLanguageCards(languageCard: LanguageCard){
+        switch (languageCard){
+            case LanguageCard.ALEMAO:
+                return "Alemão"
+
+            case LanguageCard.ESPANHOL:
+                return "Espanhol"
+
+            case LanguageCard.FRANCES:
+                return "Francês"
+
+            case LanguageCard.INGLES:
+                return "Inglês"
+
+            case LanguageCard.ITALIANO:
+                return "Italiano"
+
+            case LanguageCard.PORTUGUES:
+                return "Portugês"
+        }
+    }
 
     getAllRarityCards(): RarityCard[] {
         return [

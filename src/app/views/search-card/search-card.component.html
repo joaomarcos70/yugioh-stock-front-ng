@@ -5,7 +5,7 @@
             <input class="inputText" [(ngModel)]="params.fname" type="text" nz-input placeholder="Buscar carta" />
         </nz-input-group>
         <ng-template #suffixIconSearch>
-            <i class="iconTextSearch" nz-icon (click)="searchCards()" nzType="search"></i>
+            <i class="iconTextSearch" (click)="searchCards()" nz-icon nzType="search"></i>
         </ng-template>
     </div>
 
