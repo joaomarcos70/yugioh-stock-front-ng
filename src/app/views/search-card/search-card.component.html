@@ -1,8 +1,8 @@
-<app-base middleInputHeader="Icon.png" leftIconClass='ph-arrow-left-bold' rightIconClass='ph-funnel-simple-bold'>
+<app-base middleInputHeader="Buscar carta" leftIconClass='ph-arrow-left-bold' rightIconClass='ph-funnel-simple-bold'>
 
     <div class="rowConfig">
         <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input class="inputText" [(ngModel)]="params.fname" type="text" nz-input placeholder="input search text" />
+            <input class="inputText" [(ngModel)]="params.fname" type="text" nz-input placeholder="Buscar carta" />
         </nz-input-group>
         <ng-template #suffixIconSearch>
             <i class="iconTextSearch" nz-icon (click)="searchCards()" nzType="search"></i>
@@ -11,7 +11,7 @@
 
     <div *ngIf="cards && cards.length > 0">
         <div class="rowConfig">
-            <p class="foundCard">{{foundCards}} Carta(s) encontradas</p>
+            <p class="foundCard">{{txtFoundCards}}</p>
         </div>
 
         <div class="container">
