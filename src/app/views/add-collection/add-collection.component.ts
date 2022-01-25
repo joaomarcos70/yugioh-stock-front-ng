@@ -14,14 +14,18 @@ import { commonHelper } from 'src/app/shared/helpers/commonHelper';
 export class AddCollectionComponent implements OnInit {
 
   countCard: number = 0;
+  priceCard: number = 0
   params: CardInterface = {};
   card: CardInterface = { card_images: [{ image_url: '' }] };
   commonHelper: commonHelper = new commonHelper()
+
   rarityList: any[] = []
   languageList: any[] = []
+  stateCardList: any[] = []
 
   selectedRarity: number = null
   selectedLanguage: number = null
+  selectedStateCard: number = null
 
   constructor(private route: ActivatedRoute,
     private ygoService: YGOservice
@@ -36,6 +40,7 @@ export class AddCollectionComponent implements OnInit {
 
     this.rarityList = this.commonHelper.getAllRarityCards();
     this.languageList = this.commonHelper.getAllLanguageCards();
+    this.stateCardList = this.commonHelper.getAllCardState();
 
 
   }

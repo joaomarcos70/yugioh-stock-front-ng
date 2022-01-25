@@ -52,3 +52,9 @@ input::-webkit-inner-spin-button {
     font-size: 0.75rem;
     font-weight: 400;
 }
+
+.btnAddCollection{
+    background-color: #4F5B67;
+    height: 2.5rem;
+    border-color: transparent;
+}

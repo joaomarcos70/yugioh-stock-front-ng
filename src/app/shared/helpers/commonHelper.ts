@@ -1,7 +1,41 @@
+import { CardState } from "../enums/cardState.enum";
 import { LanguageCard } from "../enums/languageCard.enum";
 import { RarityCard } from "../enums/rarityCard.enum";
 
 export class commonHelper {
+
+    getAllCardState(): CardState[]{
+        return [
+            CardState.NOVA,
+            CardState.QUASE_NOVA,
+            CardState.POUCO_USADA,
+            CardState.USADA_MODERADAMENTE,
+            CardState.MUITO_USADA,
+            CardState.DANIFICADA
+        ]
+    }
+
+    transcriptCardState(cardState: CardState){
+        switch (cardState){
+            case CardState.NOVA:
+                return "Nova (M)"
+
+            case CardState.QUASE_NOVA:
+                return "Quase nova (NM)"
+
+            case CardState.POUCO_USADA:
+                return "Ligeiramente jogada (SP)"
+
+            case CardState.USADA_MODERADAMENTE:
+                return "Moderadamente usada (MP)"
+
+            case CardState.MUITO_USADA:
+                return "Bastante jogada (HP)"
+
+            case CardState.DANIFICADA:
+                return "Danificada (D)"
+        }
+    }
 
     getAllLanguageCards(): LanguageCard[]{
         return [

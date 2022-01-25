@@ -1,0 +1,8 @@
+export enum CardState{
+    NOVA,
+    QUASE_NOVA,
+    POUCO_USADA,
+    USADA_MODERADAMENTE,
+    MUITO_USADA,
+    DANIFICADA
+}
