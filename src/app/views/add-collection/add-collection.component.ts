@@ -16,7 +16,7 @@ export class AddCollectionComponent implements OnInit {
   countCard: number = 0;
   priceCard: number = 0
   params: CardInterface = {};
-  card: CardInterface = { card_images: [{ image_url: '' }] };
+  card: CardInterface = { name:'', card_images: [{ image_url: '' }] };
   commonHelper: commonHelper = new commonHelper()
 
   rarityList: any[] = []
@@ -31,12 +31,13 @@ export class AddCollectionComponent implements OnInit {
     private ygoService: YGOservice
   ) { }
 
-  ngOnInit() {
+   ngOnInit() {
     this.route.params.subscribe(params => this.params.id = params['id']);
 
-    this.ygoService.get(this.params).subscribe(res => {
-      this.card = res.data[0]
+     this.ygoService.get(this.params).subscribe(res => {
+      this.card = res.data[0]      
     })
+
 
     this.rarityList = this.commonHelper.getAllRarityCards();
     this.languageList = this.commonHelper.getAllLanguageCards();

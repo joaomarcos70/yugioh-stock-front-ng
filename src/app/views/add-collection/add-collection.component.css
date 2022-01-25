@@ -39,6 +39,10 @@ input::-webkit-inner-spin-button {
     font-weight: 400;
     font-size: 1rem;
     padding-left: 0.691rem;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .secondLineCardInfo {
@@ -57,4 +61,16 @@ input::-webkit-inner-spin-button {
     background-color: #4F5B67;
     height: 2.5rem;
     border-color: transparent;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.btnDescription{
+    background-color: #4F5B67;
+    height: 1.5rem;
+    border-color: transparent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 8px;
 }
