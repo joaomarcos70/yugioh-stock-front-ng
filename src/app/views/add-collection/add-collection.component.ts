@@ -14,30 +14,27 @@ import { commonHelper } from 'src/app/shared/helpers/commonHelper';
 export class AddCollectionComponent implements OnInit {
 
   countCard: number = 0;
-  params: CardInterface;
-  card:  CardInterface[] = new Array<CardInterface>();
-  cardId: number
+  params: CardInterface = {};
+  card: CardInterface = { card_images: [{ image_url: '' }] };
   commonHelper: commonHelper = new commonHelper()
   rarityList: any[] = []
+  selectedRarity: number = null
 
 
   constructor(private route: ActivatedRoute,
-    private ygoService:YGOservice
-    ) { }
+    private ygoService: YGOservice
+  ) { }
 
   ngOnInit() {
-    try {
-      this.route.params.subscribe(params => this.params.id = params['id']);
-      this.rarityList = this.commonHelper.getAllRarityCards();
-      
-      console.log("kk",this.params.id);
-      this.ygoService.get(this.params).subscribe(res => {
-        this.card = res.data
-      })
+    this.route.params.subscribe(params => this.params.id = params['id']);
 
-    } catch (error) {
-      console.log(error);
-    }
+    this.ygoService.get(this.params).subscribe(res => {
+      this.card = res.data[0]
+    })
+
+    this.rarityList = this.commonHelper.getAllRarityCards();
+
+
   }
 
   incrementCountCard() {

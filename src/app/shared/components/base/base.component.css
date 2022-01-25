@@ -1,5 +1,5 @@
 nz-header{
-   background-color:#303036;
+   background-color:#23232E;
    height: 72px;
    padding-left: 16px;
    padding-top: 12px;
@@ -10,7 +10,6 @@ nz-header{
 
 nz-content{
    background-color:#23232E;
-   padding-top: 72px;
    padding-right: 16px;
    padding-left: 16px;
    color: #ffffff;
@@ -26,7 +25,9 @@ nz-content{
 .middleInputHeader{
    text-align: left;
    color: #ffffff;
-   font-weight: bold;
+   font-weight: 700;
+   font-size: 1.25rem;
+   width: 13rem;
 }
 
 .background{

@@ -34,20 +34,15 @@ export class SearchCardComponent implements OnInit {
   }
 
   searchCards() {
-    try {
+
       this.YgoService.get(this.params).subscribe(res => {
         this.cards = res.data
         this.foundCards = res.data.length
       })
 
-    } catch (error) {
-      console.log(error);
-    }
-
   }
 
-  addCollection(index){
-    let cardId = this.cards[index].id
+  addCollection(cardId:number){
     this.router.navigate([`/add-collection/${cardId}`])
   }
 

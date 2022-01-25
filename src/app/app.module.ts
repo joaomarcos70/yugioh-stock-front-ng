@@ -19,6 +19,7 @@ import { SearchCardComponent } from './views/search-card/search-card.component';
 import { YGOservice } from './services/YGO.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddCollectionComponent } from './views/add-collection/add-collection.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 
 
 registerLocaleData(pt);
@@ -30,7 +31,8 @@ registerLocaleData(pt);
     HomeComponent,
     BaseComponent,
     SearchCardComponent,
-    AddCollectionComponent
+    AddCollectionComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
