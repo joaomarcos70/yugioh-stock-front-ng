@@ -14,6 +14,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
 import { HomeComponent } from './views/home/home.component';
+import { BaseComponent } from './shared/components/base/base.component';
+import { SearchCardComponent } from './views/search-card/search-card.component';
+import { YGOservice } from './services/YGO.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AddCollectionComponent } from './views/add-collection/add-collection.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+
 
 registerLocaleData(pt);
 
@@ -21,7 +28,11 @@ registerLocaleData(pt);
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    BaseComponent,
+    SearchCardComponent,
+    AddCollectionComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,11 +40,13 @@ registerLocaleData(pt);
     RouterModule.forRoot(AppRoutes),
     FormsModule,
     NgZorroAntdModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [
     ConfigService,
     LoginService,
+    YGOservice,
     { provide: NZ_I18N, useValue: pt_BR }
   ],
   bootstrap: [AppComponent]

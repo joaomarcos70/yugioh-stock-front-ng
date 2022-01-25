@@ -1,0 +1,54 @@
+.countBtn {
+    background-color: #343D46;
+    color: #ffffff;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inputCountBtn {
+    background-color: #343D46;
+    border-color: transparent;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 1.5rem;
+    width: 2.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.iconCountBtn {
+    text-align: center;
+}
+
+.imgToAdd {
+    width: 4.813rem;
+    height: 7rem;
+}
+
+.titleCardInfo {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 1rem;
+    padding-left: 0.719rem;
+}
+
+.secondLineCardInfo {
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: #C1C5CE;
+}
+
+.thirdLineCardInfo {
+    color: #C1C5CE;
+    font-size: 0.75rem;
+    font-weight: 400;
+}

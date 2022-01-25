@@ -1,0 +1,71 @@
+.foundCard{
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 50%;
+}
+
+.card.cardSearchBg{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: .25rem;
+    background-color: #303036;
+    border: transparent;
+    height: 12.5rem;
+}.lineCard{
+    padding: .5rem 1rem;
+    border-top: 1px solid rgba(0,0,0,.125);
+    width: 100%;
+}
+
+.card-body{
+    padding-left: 1.438rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.leftBtnCard{
+    
+    height: 1.5rem;
+    width: 5.5rem;
+    background-color: #4F5B67;
+    color: #ffffff;
+    border-color: transparent;
+    text-align: left;
+    font-size: 0.625rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}.leftIcon{
+    text-align: right;
+}
+
+.rightBtnCard{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #4F5B67;
+    margin-right: 0.5rem;
+    color: #ffffff;
+    font-size: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.rightIcon{
+    text-align: center;
+}
+
+.imgCard{
+    height: 8rem;
+    width:  5.563rem;
+    border-radius: 4px;
+}
+
+
+.cardRowConfig{
+    padding-bottom:16px;
+    padding-right: 16px;
+}
+

@@ -1,3 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+    font-family: "Poppins" !important;
+}
+
+.inputText {
+    position: relative;
+    display: inline-block;
+    height: 48px;
+    padding: 4px 11px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #303036;
+    background-image: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    border-color: transparent;
+}
+
+.fullInputSelect {
+    position: relative;
+    display: inline-block;
+    height: 2.5rem;
+    width: 100%;
+    background-color: #343d46;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    font-weight: 400;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    color: #ffffff;
+}
+
+.inputSelect {
+    position: relative;
+    display: inline-block;
+    height: 2.5rem;
+    width: 100%;
+    background-color: #343d46;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    font-weight: 400;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    color: #ffffff;
+}
+
+.iconTextSearch {
+    color: #ffffff;
+    font-style: normal;
+    font-size: 24px;
+}
+
+.rowConfig {
+    padding-bottom: 12px;
+}

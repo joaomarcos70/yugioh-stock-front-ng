@@ -1,0 +1,25 @@
+<div class="background dark">
+  <nz-layout>
+    <nz-header>
+      <div nz-row>
+        <div nz-col nzSpan="6" nzAlign="center" class="leftBtnHeader">
+          <button class="iconButtonHeader" nz-button nzType="primary" [nzSize]="size">
+            <i class="headerIconStyle" [ngClass]="leftIconClass"></i></button>
+        </div>
+
+        <div nz-col nzSpan="12" class="middleInputHeader">
+          {{middleInputHeader}}
+        </div>
+
+        <div nz-col nzSpan="6" nzAlign="center" class="rightBtnHeader">
+          <button class="iconButtonHeader" nz-button nzType="primary" [nzSize]="size"><i
+              [ngClass]="rightIconClass"></i></button>
+        </div>
+
+      </div>
+    </nz-header>
+    <nz-content>
+      <ng-content></ng-content>
+    </nz-content>
+  </nz-layout>
+</div>
