@@ -1,3 +1,4 @@
+import { AttributeCard } from "../shared/enums/attributeCard.enum";
 
     export interface CardSet {
         set_name?: string;
@@ -23,7 +24,7 @@
         def?: number;
         level?: number;
         race?: string;
-        attribute?: string;
+        attribute?: AttributeCard;
         card_sets?: CardSet[];
         card_images?: CardImage[];
     }

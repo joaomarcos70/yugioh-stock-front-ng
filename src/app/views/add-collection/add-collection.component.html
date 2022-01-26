@@ -1,25 +1,37 @@
 <app-base middleInputHeader="Adicionar Carta" leftIconClass="ph-arrow-left-bold" rightIconClass="ph-funnel-simple-bold">
     <div class="container">
         <div class="row">
-            <div class="col-4 col-xs-4 col-sm-4 col-md-4 gy-3">
+            <div class="col-5 col-xs-5 col-sm-5 col-md-5 gy-3">
                 <img src="{{ card.card_images[0].image_url }}" class="img-fluid imgToAdd" />
             </div>
-            <div class="col-8 col-xs-8 col-sm-8 col-md-8 gy-3">
+            <div class="col-7 col-xs-7 col-sm-7 col-md-7 gy-3">
                 <div class="row">
-                    <h1 class="titleCardInfo text-right">{{ card.name }}</h1>
+                    <h1 class="titleCardInfo">{{ card.name }}</h1>
                 </div>
-                <div class="row" style="padding-left: 0.719rem">
-                    <div class="col-4 col-xs-4 col-sm-4 col-md-4 gy-2 gx-2">
-                        <h1 class="secondLineCardInfo text-right">{{ card.attribute }}</h1>
+                <div class="row">
+                    <div class="col-5 col-xs-5 col-sm-5 col-md-5 gy-2 gx-2">
+                        <h1 class="secondLineCardInfo text-right">
+                            <img class="attributeIcon" [src]="commonHelper.transcriptAttributeCard(card.attribute)" />
+                            {{ card.attribute }}
+                        </h1>
                     </div>
-                    <div class="col-4 col-xs-4 col-sm-4 col-md-4 gy-2 gx-2">
-                        <h1 class="secondLineCardInfo text-right">Nível {{ card.level }}</h1>
+                    <div class="col-5 col-xs-5 col-sm-5 col-md-5 gy-2 gx-2">
+                        <h1 class="secondLineCardInfo text-right">
+                            <img class="attributeIcon" src="../../../assets/levelIcon/levelStar.svg" />
+                            Nível {{ card.level }}
+                        </h1>
                     </div>
-                    <div class="col-4 col-xs-4 col-sm-4 col-md-4 gy-2 gx-2"></div>
+                    <div class="col-2 col-xs-2 col-sm-2 col-md-2 gy-2 gx-2">
+                    </div>
                 </div>
-                <div class="row text-left" style="padding-left: 0.719rem">
+                <div class="row text-left">
                     <div class="col-12 col-xs-12 col-sm-12 col-md-12 gy-2 gx-2">
                         <p class="thirdLineCardInfo">{{ card.race }} | {{ card.type }}</p>
+                    </div>
+                </div>
+                <div class="row text-left">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12 gy-2 gx-2">
+                        <button type="button" class="btn btn-secondary btnDescription">Descrição</button>
                     </div>
                 </div>
             </div>
@@ -37,20 +49,20 @@
         </div>
         <div class="row">
             <div class="col-12 btn-group gy-3">
-                <select class="fullInputSelect" [(ngModel)]="selectedRarity">
-                    <option value="null">Raridade</option>
-                    <option [ngValue]="rarity" *ngFor="let rarity of rarityList">
-                        {{ commonHelper.transcriptRarityCards(rarity) }}
+                <select class="fullInputSelect" [(ngModel)]="selectedLanguage">
+                    <option value="null">Idioma</option>
+                    <option [ngValue]="language" *ngFor="let language of languageList">
+                        {{ commonHelper.transcriptLanguageCards(language) }}
                     </option>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="col-12 btn-group gy-3">
-                <select class="fullInputSelect" [(ngModel)]="selectedRarity">
-                    <option value="null">Raridade</option>
-                    <option [ngValue]="rarity" *ngFor="let rarity of rarityList">
-                        {{ commonHelper.transcriptRarityCards(rarity) }}
+                <select class="fullInputSelect" [(ngModel)]="selectedStateCard">
+                    <option value="null">Estado da carta</option>
+                    <option [ngValue]="stateCard" *ngFor="let stateCard of stateCardList">
+                        {{ commonHelper.transcriptCardState(stateCard) }}
                     </option>
                 </select>
             </div>
@@ -62,7 +74,7 @@
                         <span>R$</span>
                     </div>
                     <div class="col-8 text-left">
-                        <input class="inputCountBtn" [(ngModel)]="countCard" type="number " />
+                        <input class="inputCountBtn" [(ngModel)]="priceCard" type="number " />
                     </div>
                 </div>
             </div>
@@ -73,12 +85,18 @@
                         <span><i class="ph-minus-bold" (click)="decrementCountCard()"></i></span>
                     </div>
                     <div class="col-4 text-center">
-                        <input class="inputCountBtn" max="99 " [(ngModel)]="countCard" type="number " />
+                        <input class="inputCountBtn" max="99" [(ngModel)]="countCard" type="number " />
                     </div>
                     <div class="col-4 text-center">
                         <span><i class="ph-plus-bold" (click)="incrementCountCard()"></i></span>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 btn-group" style="padding-top: 4.5rem; padding-bottom: 1.5rem">
+                <button type="button" class="btn btn-secondary btnAddCollection">Adicionar</button>
             </div>
         </div>
     </div>

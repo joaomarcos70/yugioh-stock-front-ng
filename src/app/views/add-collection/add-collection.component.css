@@ -30,15 +30,19 @@ input::-webkit-inner-spin-button {
 }
 
 .imgToAdd {
-    width: 4.813rem;
-    height: 7rem;
+    width: auto;
+    height: auto;
 }
 
 .titleCardInfo {
     color: #ffffff;
     font-weight: 400;
     font-size: 1rem;
-    padding-left: 0.719rem;
+    padding-left: 0px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .secondLineCardInfo {
@@ -51,4 +55,27 @@ input::-webkit-inner-spin-button {
     color: #C1C5CE;
     font-size: 0.75rem;
     font-weight: 400;
+}
+
+.btnAddCollection{
+    background-color: #4F5B67;
+    height: 2.5rem;
+    border-color: transparent;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.btnDescription{
+    background-color: #4F5B67;
+    border-color: transparent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.attributeIcon{
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
 }
