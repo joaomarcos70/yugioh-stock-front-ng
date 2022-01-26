@@ -1,9 +1,9 @@
 .header{
    background-color:#23232E;
    height: 4.5rem;
-   padding-left: 1rem;
+   padding-left: 0.5rem;
    padding-top: 0.75rem;
-   padding-right: 1rem;
+   padding-right: 0.5rem;
    width: 100%;
    color: #ffffff;
    display: flex;
@@ -18,8 +18,8 @@
 
 .content{
    background-color:#23232E;
-   padding-right: 1rem;
-   padding-left: 1rem;
+   padding-right: 0.5rem;
+   padding-left: 0.5rem;
    color: #ffffff;
 }
 

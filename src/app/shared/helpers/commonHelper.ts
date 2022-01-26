@@ -1,8 +1,41 @@
+import { AttributeCard } from "../enums/attributeCard.enum";
 import { CardState } from "../enums/cardState.enum";
 import { LanguageCard } from "../enums/languageCard.enum";
 import { RarityCard } from "../enums/rarityCard.enum";
 
 export class commonHelper {
+
+    getAllCardAttribute(): AttributeCard[]{
+        return [
+            AttributeCard.DARK,
+            AttributeCard.DIVINE,
+            AttributeCard.EARTH,
+            AttributeCard.FIRE,
+            AttributeCard.LIGHT,
+            AttributeCard.WATER,
+            AttributeCard.WIND
+        ]
+    }
+
+    transcriptAttributeCard(attributeCard: AttributeCard){
+        console.log("atributo",attributeCard);
+        switch(attributeCard){
+            case AttributeCard.DARK:
+                return "../../../assets/attributeIcons/DARK.svg"
+            case AttributeCard.DIVINE:
+                return "../../../assets/attributeIcons/DIVINE.svg"
+            case AttributeCard.EARTH:
+                return "../../../assets/attributeIcons/EARTH.svg"
+            case AttributeCard.FIRE:
+                return "../../../assets/attributeIcons/FIRE.svg"
+            case AttributeCard.LIGHT:
+                return "../../../assets/attributeIcons/LIGHT.svg"
+            case AttributeCard.WATER:
+                return "../../../assets/attributeIcons/WATER.svg"
+            case AttributeCard.WIND:
+                return "../../../assets/attributeIcons/WIND.svg"
+        }
+    }
 
     getAllCardState(): CardState[]{
         return [

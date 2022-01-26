@@ -43,7 +43,6 @@ export class AddCollectionComponent implements OnInit {
     this.languageList = this.commonHelper.getAllLanguageCards();
     this.stateCardList = this.commonHelper.getAllCardState();
 
-
   }
 
   incrementCountCard() {
