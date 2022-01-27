@@ -1,8 +1,4 @@
 
-.container{
-  padding: 0px;
-}
-
 .iconLogin{
   margin-bottom: 4.5rem;
 }
@@ -23,16 +19,32 @@
   border-color: transparent;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
+  transition: 0.2s;
 }
 
-.inputLoginPassword{
-  height: 2.5rem;
-  background-color: #343D46;
-  font-weight: 400;
-  color:#ffffff;
-  border-color: transparent;
-  border-radius: 0.5rem;
+.inputIcon{
+  transition: 0.3s;
 }
+
+.inputIcon span{
+  position: absolute;
+  right: 0.625rem;
+  padding: 8px 8px;
+  transition: 0.3s;
+}
+::placeholder{
+  font-size: 0.875;
+  font-weight: 400;
+}
+
+.eye{
+  position: absolute;
+}
+
+#openEye{
+  display: none;
+}
+
 
 .txtLogin{
   font-weight: 400;
