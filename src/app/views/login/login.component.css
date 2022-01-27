@@ -1,71 +1,73 @@
-
-.iconLogin{
-  margin-bottom: 4.5rem;
+.iconLogin {
+    margin-bottom: 4.5rem;
 }
 
-.submitLogin{
-  border-radius: 0.5rem;
-  background-color:#4F5B67;
-  border-color: transparent;
-  margin-top: 3.75rem;
-  margin-bottom: 0.5rem;
+.submitLogin {
+    border-radius: 0.5rem;
+    background-color: #4f5b67;
+    border-color: transparent;
+    margin-top: 3.75rem;
+    margin-bottom: 0.5rem;
 }
 
-.inputLogin{
-  height: 2.5rem;
-  background-color: #343D46;
-  font-weight: 400;
-  color:#ffffff;
-  border-color: transparent;
-  border-radius: 0.5rem;
-  margin-bottom: 2rem;
-  transition: 0.2s;
+.inputLogin {
+    height: 2.5rem;
+    background-color: #343d46;
+    font-weight: 400;
+    color: #ffffff;
+    border-color: transparent;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    transition: 0.2s;
 }
 
-.inputIcon{
-  transition: 0.3s;
+.inputIcon {
+    transition: 0.3s;
 }
 
-.inputIcon span{
-  position: absolute;
-  right: 0.625rem;
-  padding: 8px 8px;
-  transition: 0.3s;
+.inputIcon span {
+    position: absolute;
+    right: 0.625rem;
+    padding: 8px 8px 8px 8px;
+    height: 2.5rem;
+    transition: 0.3s;
 }
-::placeholder{
-  font-size: 0.875;
-  font-weight: 400;
-}
-
-.eye{
-  position: absolute;
+::placeholder {
+    font-size: 0.875;
+    font-weight: 400;
 }
 
-#openEye{
-  display: none;
+.eye {
+    position: absolute;
 }
 
-
-.txtLogin{
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 13px;
+#closeEye {
+    display: none;
+}
+::before {
+    display: flex;
 }
 
-.deepLinkLogin{
-  font-weight: 500;
-  color: #ffffff;
+.txtLogin {
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 13px;
 }
 
-.leftColumn{
-  display: flex;
-  justify-content: flex-start;
-  font-size: 13px;
-  font-weight: 400;
+.deepLinkLogin {
+    font-weight: 500;
+    color: #ffffff;
 }
 
-.rightColumn{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.leftColumn {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.rightColumn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
