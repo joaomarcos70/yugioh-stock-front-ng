@@ -11,6 +11,7 @@ import { Login } from 'src/app/models/Login.model';
 })
 export class LoginComponent implements OnInit {
   body = new Login()
+  isRememberPassword: boolean = false
 
 
 
@@ -25,4 +26,17 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home'])
     })
   }
+
+  changeRememberPass(){
+    console.log(this.isRememberPassword);
+  }
+
+/*   revealPassword(){
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  } */
 }

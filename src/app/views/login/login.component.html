@@ -1,39 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
+<app-base middleInputHeader="" leftIconClass="" rightIconClass="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="iconLogin">Icon.png</h1>
+            </div>
+        </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>teste</title>
-</head>
+        <div class="row">
+            <div class="row">
+                <label class="form-label txtLogin">E-mail</label>
+            </div>
+            <div class="col-12">
+                <input
+                [(ngModel)]="body.email"
+                    type="email"
+                    class="form-control inputLogin"
+                    id="exampleFormControlInput1"
+                    placeholder="Digite seu e-mail"
+                />
+            </div>
+        </div>
 
-<body>
-  <div class="wrapper fadeInDown">
-    <div id="formContent">
-      <!-- Tabs Titles -->
+        <div class="row">
+            <div class="row">
+                <label class="form-label txtLogin">Senha</label>
+            </div>
+            <div class="col-12">
+                    <nz-input-group [nzSuffix]="suffixHidePassword">
+                        <input class="inputLoginPassword" [(ngModel)]="body.password" type="password" id="password" nz-input placeholder="Senha"/>
+                    </nz-input-group>
+                    <ng-template #suffixHidePassword>
+                        <i class="iconTextSearch ph-eye-bold" (click)="revealPassword()"></i>
+                    </ng-template>
+            </div>
+        </div>
 
-      <!-- Icon -->
-      <div class="fadeIn first">
-        <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-      </div>
+        <div class="row" style="padding-top: 2rem;">
+            <div class="col-7 leftColumn">
+                <ui-switch
+                    style="margin-right: 8px"
+                    defaultBoColor="transparent"
+                    defaultBgColor="#4F5B67"
+                    size="small"
+                    color="#2CAECB"
+                    switchColor="#FFFFFF"
+                    [(ngModel)]="isRememberPassword"
+                    (change)="changeRememberPass()"
+                ></ui-switch>
+                Lembrar senha
+            </div>
 
-      <!-- Login Form -->
-      <form>
-        <input type="text" id="login" [(ngModel)]="body.email" class="fadeIn second" name="login" placeholder="login">
-        <input type="text" id="password" [(ngModel)]="body.password" class="fadeIn third" name="login"
-          placeholder="password">
-        <button nz-button [nzSize]="size" nzType="primary">Dashed Button</button>
-        <input type="submit" class="fadeIn fourth" value="Log In" (click)="sendtoBack()">
-      </form>
+            <div class="col-5 rightColumn">
+                <p class="txtLogin"><a class="deepLinkLogin" href="">Esqueci a senha</a></p>
+            </div>
+        </div>
 
-      <!-- Remind Passowrd -->
-      <div id="formFooter">
-        <a class="underlineHover" href="#">Forgot Password?</a>
-      </div>
+        <div class="row">
+            <div class="col-12 btn-group">
+                <button type="submit" class="btn btn-secondary submitLogin " (click)="sendtoBack()">Entrar</button>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="txtLogin">Noob por aqui ? <a class="deepLinkLogin" href="">Crie uma conta</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-</body>
-
-</html>
+</app-base>
