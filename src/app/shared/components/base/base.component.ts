@@ -1,21 +1,29 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
 
 @Component({
-  selector: 'app-base',
-  templateUrl: './base.component.html',
-  styleUrls: ['./base.component.css']
+    selector: 'app-base',
+    templateUrl: './base.component.html',
+    styleUrls: ['./base.component.css']
 })
 export class BaseComponent implements OnInit {
-  
-  @Input() middleInputHeader: any;
-  @Input() leftIconClass: string = ''
-  @Input() rightIconClass: string =''
+    @Input() middleInputHeader: any
+    @Input() leftIconClass: string = ''
+    @Input() rightIconClass: string = ''
+    @Input() isDisabledLeftBtn: boolean = false
+    @Input() isDisabledRightBtn: boolean = false
 
-  @Output() actionButton:EventEmitter<any> = new EventEmitter();
+    @Output() leftIconAction: EventEmitter<any> = new EventEmitter()
+    @Output() rightIconAction: EventEmitter<any> = new EventEmitter()
 
-  constructor() { }
+    constructor() {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {}
 
+    emitLeftBtn() {
+        this.leftIconAction.emit()
+    }
+
+    emitRightBtn() {
+        this.rightIconAction.emit()
+    }
 }

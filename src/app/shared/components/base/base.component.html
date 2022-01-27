@@ -2,9 +2,14 @@
     <div class="header">
         <div class="row rowConfigHeader">
             <div class="col-2 leftBtnHeader">
-              <button type="button" class="btn iconButtonHeader">
-                <i class="headerIconStyle" [ngClass]="leftIconClass"></i>
-              </button>
+                <button
+                    [disabled]="isDisabledLeftBtn"
+                    type="button"
+                    class="btn iconButtonHeader"
+                    (click)="emitLeftBtn()"
+                >
+                    <i class="headerIconStyle" [ngClass]="leftIconClass"></i>
+                </button>
             </div>
 
             <div class="col-8 middleInputHeader">
@@ -12,10 +17,14 @@
             </div>
 
             <div class="col-2 rightBtnHeader">
-              <button type="button" class="btn iconButtonHeader">
-                <i class="headerIconStyle" [ngClass]="rightIconClass"
-                (click)="actionButton()"></i>
-              </button>
+                <button
+                    [disabled]="isDisabledRightBtn"
+                    type="button"
+                    class="btn iconButtonHeader"
+                    (click)="emitRightBtn()"
+                >
+                    <i class="headerIconStyle" [ngClass]="rightIconClass"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -23,4 +32,3 @@
         <ng-content></ng-content>
     </div>
 </div>
-
