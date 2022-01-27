@@ -1,70 +1,75 @@
 <app-base middleInputHeader="" leftIconClass="" rightIconClass="">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1 class="iconLogin">Icon.png</h1>
-            </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="iconLogin">Icon.png</h1>
         </div>
+    </div>
 
+    <div class="row">
         <div class="row">
-            <div class="row">
-                <label class="form-label txtLogin">E-mail</label>
-            </div>
-            <div class="col-12">
-                <input
+            <label class="form-label txtLogin">E-mail</label>
+        </div>
+        <div class="col-12">
+            <input
                 [(ngModel)]="body.email"
-                    type="email"
-                    class="form-control inputLogin"
-                    id="exampleFormControlInput1"
-                    placeholder="Digite seu e-mail"
-                />
-            </div>
+                type="email"
+                class="form-control inputLogin"
+                id="email"
+                placeholder="Digite seu e-mail"
+            />
         </div>
+    </div>
 
+    <div class="row">
         <div class="row">
-            <div class="row">
-                <label class="form-label txtLogin">Senha</label>
-            </div>
-            <div class="col-12">
-                    <nz-input-group [nzSuffix]="suffixHidePassword">
-                        <input class="inputLoginPassword" [(ngModel)]="body.password" type="password" id="password" nz-input placeholder="Senha"/>
-                    </nz-input-group>
-                    <ng-template #suffixHidePassword>
-                        <i class="iconTextSearch ph-eye-bold" (click)="revealPassword()"></i>
-                    </ng-template>
-            </div>
+            <label class="form-label txtLogin">Senha</label>
+        </div>
+        <div class="inputIcon col-12">
+
+            <span class="eye" (click)="revealPassword()">
+                <i class="iconTextSearch ph-eye-bold" id="openEye"></i>
+                <i class="iconTextSearch ph-eye-slash-bold" id="closeEye"></i>
+            </span>
+            <input
+                [(ngModel)]="body.password"
+                type="password"
+                class="form-control inputLogin"
+                id="password"
+                placeholder="Senha"
+            />
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 2rem">
+        <div class="col-7 leftColumn">
+            <ui-switch
+                value="submit"
+                style="margin-right: 8px"
+                defaultBoColor="transparent"
+                defaultBgColor="#4F5B67"
+                size="small"
+                color="#2CAECB"
+                switchColor="#FFFFFF"
+                [(ngModel)]="isRememberPassword"
+                (change)="changeRememberPass()"
+            ></ui-switch>
+            Lembrar senha
         </div>
 
-        <div class="row" style="padding-top: 2rem;">
-            <div class="col-7 leftColumn">
-                <ui-switch
-                    style="margin-right: 8px"
-                    defaultBoColor="transparent"
-                    defaultBgColor="#4F5B67"
-                    size="small"
-                    color="#2CAECB"
-                    switchColor="#FFFFFF"
-                    [(ngModel)]="isRememberPassword"
-                    (change)="changeRememberPass()"
-                ></ui-switch>
-                Lembrar senha
-            </div>
-
-            <div class="col-5 rightColumn">
-                <p class="txtLogin"><a class="deepLinkLogin" href="">Esqueci a senha</a></p>
-            </div>
+        <div class="col-5 rightColumn">
+            <p class="txtLogin"><a class="deepLinkLogin" href="">Esqueci a senha</a></p>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-12 btn-group">
-                <button type="submit" class="btn btn-secondary submitLogin " (click)="sendtoBack()">Entrar</button>
-            </div>
+    <div class="row">
+        <div class="col-12 btn-group">
+            <button type="submit" value="submit" class="btn btn-secondary submitLogin" (click)="sendtoBack()">Entrar</button>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-12 text-center">
-                <p class="txtLogin">Noob por aqui ? <a class="deepLinkLogin" href="">Crie uma conta</a></p>
-            </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <p class="txtLogin">Noob por aqui ? <a class="deepLinkLogin" href="">Crie uma conta</a></p>
         </div>
     </div>
 </app-base>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-base',
@@ -11,10 +11,11 @@ export class BaseComponent implements OnInit {
   @Input() leftIconClass: string = ''
   @Input() rightIconClass: string =''
 
+  @Output() actionButton:EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
-
 
 }
