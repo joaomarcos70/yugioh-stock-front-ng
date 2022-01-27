@@ -1,5 +1,9 @@
-<app-base middleInputHeader="Buscar carta" leftIconClass='ph-arrow-left-bold' rightIconClass='ph-funnel-simple-bold'>
-
+<app-base middleInputHeader="Buscar carta"
+leftIconClass="ph-arrow-left-bold"
+rightIconClass="ph-funnel-simple-bold"
+(leftIconAction)="previousPage()"
+(rightIconAction)="filterPage()"
+  >
     <div class="rowConfig">
         <nz-input-group [nzSuffix]="suffixIconSearch">
             <input class="inputText" [(ngModel)]="params.fname" type="text" nz-input placeholder="Buscar carta" />
@@ -11,25 +15,44 @@
 
     <div *ngIf="cards && cards.length > 0">
         <div class="rowConfig">
-            <p class="foundCard">{{txtFoundCards}}</p>
+            <p class="foundCard">{{ txtFoundCards }}</p>
         </div>
 
         <div class="container">
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-3 gx-2 gy-3" style="height: 12.5rem;" *ngFor="let card of cards | paginate: { itemsPerPage: cardSearchModel.limit, currentPage: currentPage, totalItems: foundCards } let i = index">
-                    <div class="card cardSearchBg" style="width: 8.5rem;">
+                <div
+                    class="col-6 col-sm-6 col-md-3 gx-2 gy-3"
+                    style="height: 12.5rem"
+                    *ngFor="
+                        let card of cards
+                            | paginate
+                                : {
+                                      itemsPerPage: cardSearchModel.limit,
+                                      currentPage: currentPage,
+                                      totalItems: foundCards
+                                  };
+                        let i = index
+                    "
+                >
+                    <div class="card cardSearchBg" style="width: 8.5rem">
                         <div class="gy-3 card-body">
-                            <img class="imgCard" src="{{card.card_images[0].image_url}}">
+                            <img class="imgCard" src="{{ card.card_images[0].image_url }}" />
                         </div>
                         <div class="lineCard">
                             <div class="row">
                                 <div class="col-8 col-sm-8 col-md-8 gx-2">
-                                    <button type="button" (click)="addCollection(card.id)" class="btn btn-light leftBtnCard">
-                                        <i class="ph-folder-notch-plus-bold leftIcon"></i>Coleção</button>
+                                    <button
+                                        type="button"
+                                        (click)="addCollection(card.id)"
+                                        class="btn btn-light leftBtnCard"
+                                    >
+                                        <i class="ph-folder-notch-plus-bold leftIcon"></i>Coleção
+                                    </button>
                                 </div>
                                 <div class="col-4 col-sm-4 col-md-4">
-                                    <button type="button" class="btn rightBtnCard"><i
-                                            class="ph-heart-straight-bold rightIcon"></i></button>
+                                    <button type="button" class="btn rightBtnCard">
+                                        <i class="ph-heart-straight-bold rightIcon"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -38,5 +61,4 @@
             </div>
         </div>
     </div>
-
 </app-base>

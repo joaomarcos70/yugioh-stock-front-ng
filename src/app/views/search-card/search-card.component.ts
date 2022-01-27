@@ -4,6 +4,7 @@ import { cardSearch } from 'src/app/models/CardSearch.model';
 import { YGOservice } from 'src/app/services/YGO.service';
 import { CardInterface } from 'src/app/interfaces/cardSearch.interface';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search-card',
@@ -28,10 +29,19 @@ export class SearchCardComponent implements OnInit {
 
 
   constructor(private YgoService: YGOservice,
-    private router:Router) { }
+    private router:Router,
+    private location: Location) { }
 
   async ngOnInit() {
     this.searchCards()
+  }
+
+  previousPage(){
+    this.location.back()
+  }
+
+  filterPage(){
+    
   }
 
   searchCards() {

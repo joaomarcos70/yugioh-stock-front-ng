@@ -1,16 +1,22 @@
-<app-base middleInputHeader="Icon.png" leftIconClass="" rightIconClass="ph-magnifying-glass-bold">
+<app-base
+    middleInputHeader="Icon.png"
+    rightIconClass="ph-magnifying-glass-bold"
+    (rightIconAction)="sendToSearch()"
+    isDisabledLeftBtn = "true"
+>
     <div style="padding-top: 2.5rem"></div>
 
     <div class="row">
         <div class="col-6">
-            <i class="ph-folder-bold homeBorderBtn"></i>
+            <span>
+                <i class="ph-folder-bold homeBorderBtn"></i>
+            </span>
         </div>
         <div class="col-6 gx-3">
             <h1>Coleção</h1>
         </div>
         <div class="row">
-            <div class="col-6">
-            </div>
+            <div class="col-6"></div>
             <div class="col-6">
                 <p>420 Cartas</p>
             </div>
@@ -19,45 +25,18 @@
 
     <div class="row">
         <div class="col-6">
-            <i class="ph-heart-straight-bold homeBorderBtn"></i>
+            <span>
+                <i class="ph-heart-straight-bold homeBorderBtn"></i>
+            </span>
         </div>
         <div class="col-6">
             <h1>Wants</h1>
         </div>
         <div class="row">
-            <div class="col-6">
-            </div>
+            <div class="col-6"></div>
             <div class="col-6">
                 <p>42 Cartas</p>
             </div>
         </div>
     </div>
-
-<!--     <div nz-row [nzGutter]="[16, 24]">
-        <div nz-col class="grid-config" [nzSpan]="6">
-            <i class="ph-folder-bold homeBorderBtn"></i>
-        </div>
-        <div nz-col class="gutter-row" [nzSpan]="18">
-            <div><b>Coleção</b></div>
-        </div>
-        <div nz-col class="gutter-row" [nzSpan]="18">
-            <div>
-                <p>420 Cartas</p>
-            </div>
-        </div>
-    </div>
-
-    <div nz-row [nzGutter]="[16, 24]">
-        <div nz-col class="grid-config" [nzSpan]="6">
-            <i class="ph-heart-straight-bold homeBorderBtn"></i>
-        </div>
-        <div nz-col class="gutter-row" [nzSpan]="18">
-            <div><b>Wants</b></div>
-        </div>
-        <div nz-col class="gutter-row" [nzSpan]="18">
-            <div>
-                <p>42 Cartas</p>
-            </div>
-        </div>
-    </div> -->
 </app-base>
