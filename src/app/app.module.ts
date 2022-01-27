@@ -20,6 +20,7 @@ import { YGOservice } from './services/YGO.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddCollectionComponent } from './views/add-collection/add-collection.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 
 registerLocaleData(pt);
@@ -41,7 +42,8 @@ registerLocaleData(pt);
     FormsModule,
     NgZorroAntdModule,
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    UiSwitchModule
   ],
   providers: [
     ConfigService,
