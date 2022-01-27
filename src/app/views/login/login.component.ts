@@ -11,7 +11,7 @@ import { Login } from 'src/app/models/Login.model'
 export class LoginComponent implements OnInit {
     body = new Login()
     isRememberPassword: boolean = false
-    showPassword: boolean = false
+    showPassword: boolean = true
 
     constructor(private loginservice: LoginService, private router: Router) {}
 
