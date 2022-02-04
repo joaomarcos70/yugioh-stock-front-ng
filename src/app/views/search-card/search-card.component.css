@@ -15,6 +15,8 @@
     background-color: #303036;
     border: transparent;
     height: 12.5rem;
+    max-width: 136px;
+
 }.lineCard{
     padding: .5rem 1rem;
     border-top: 1px solid rgba(0,0,0,.125);
