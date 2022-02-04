@@ -39,6 +39,8 @@
 
 .background{
    background-color: #23232E;
+   min-width: 100%;
+   min-height: 100%;
 }
 
 .background.dark{
