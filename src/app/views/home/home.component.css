@@ -1,3 +1,8 @@
+.container{
+    margin: 0;
+    padding: 0;
+}
+
 .homeBorderBtn{
     height: 3.5rem;
     width: 3.5rem;
