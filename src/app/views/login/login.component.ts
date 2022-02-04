@@ -11,11 +11,13 @@ import { Login } from 'src/app/models/Login.model'
 export class LoginComponent implements OnInit {
     body = new Login()
     isRememberPassword: boolean = false
-    showPassword: boolean = false
+    showPassword: boolean = true
 
     constructor(private loginservice: LoginService, private router: Router) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.revealPassword()
+    }
 
     sendtoBack() {
         this.loginservice.verifyLogin(this.body).subscribe(res => {
@@ -34,12 +36,12 @@ export class LoginComponent implements OnInit {
 
         if (this.showPassword) {
             inputPassword.setAttribute('type', 'text')
-            document.getElementById('openEye').style.display = 'block'
-            document.getElementById('closeEye').style.display = 'none'
-        } else {
-            inputPassword.setAttribute('type', 'password')
             document.getElementById('openEye').style.display = 'none'
             document.getElementById('closeEye').style.display = 'block'
+        } else {
+            inputPassword.setAttribute('type', 'password')
+            document.getElementById('openEye').style.display = 'block'
+            document.getElementById('closeEye').style.display = 'none'
         }
     }
 }
