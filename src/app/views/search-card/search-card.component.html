@@ -18,11 +18,11 @@ rightIconClass="ph-funnel-simple-bold"
             <p class="foundCard">{{ txtFoundCards }}</p>
         </div>
 
-        <div class="container">
+        <div class="container" style="padding: unset;">
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-3" style="height: 12.5rem"
+                <div class="col-6 col-sm-6 col-md-3 gy-4" style="height: 12.5rem;"
                     *ngFor="let card of cards | paginate: { itemsPerPage: cardSearchModel.limit, currentPage: currentPage, totalItems: foundCards };let i = index">
-                    <div class="card cardSearchBg" style="width: 8.5rem">
+                    <div class="card cardSearchBg" style="width: 8.5rem;">
                         <div class="gy-3 card-body">
                             <img class="imgCard" src="{{ card.card_images[0].image_url }}" />
                         </div>
