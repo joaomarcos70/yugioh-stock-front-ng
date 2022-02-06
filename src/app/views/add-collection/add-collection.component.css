@@ -1,3 +1,8 @@
+.container{
+    margin: 0;
+    padding: 0;
+}
+
 .countBtn {
     background-color: #343D46;
     color: #ffffff;

@@ -1,0 +1,67 @@
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeMenuFilter()">&times;</a>
+  <div class="overlay-content">
+    <div class="row" style="padding-bottom:16px;">
+      <div class="col-12">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+          <input class="inputText" type="text" nz-input placeholder="Descriação da carta" />
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+          <i class="iconTextSearch" nz-icon nzType="search"></i>
+        </ng-template>
+      </div>
+    </div>
+    <div class="row" style="padding-bottom:16px;">
+      <div class="col-12">
+        <div class="form-floating" style="color: #ffffff;">
+          <select class="form-select selectdropdownlabel" id="floatingSelect">
+            <option value="1">One</option>
+          </select>
+          <label for="floatingSelect">Tipo de carta</label>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding-bottom:16px;">
+      <div class="col-12">
+        <div class="form-floating" style="color: #ffffff;">
+          <select class="form-select selectdropdownlabel" id="floatingSelect">
+            <option value="1">One</option>
+          </select>
+          <label for="floatingSelect">Atributo</label>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding-bottom:16px;">
+      <div class="col-12">
+        <div class="form-floating" style="color: #ffffff;">
+          <select class="form-select selectdropdownlabel" id="floatingSelect">
+            <option value="1">One</option>
+          </select>
+          <label for="floatingSelect">Tipo</label>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="padding-bottom:16px;">
+      <div class="col-12">
+        <div class="form-floating" style="color: #ffffff;">
+          <select class="form-select selectdropdownlabel" id="floatingSelect">
+            <option value="1">One</option>
+          </select>
+          <label for="floatingSelect">Raridade</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 100px;">
+    <div class="col-6">
+      <div class="col-12 btn-group">
+        <button class="btn btn-secondary resetBtn">Redefinir</button>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="col-12 btn-group">
+        <button class="btn btn-secondary applyBtn">Aplicar</button>
+      </div>
+    </div>
+  </div>
+</div>

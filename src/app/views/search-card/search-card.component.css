@@ -1,7 +1,20 @@
+.container{
+    padding: 0;
+    margin: 0;
+}
+
+.gridCard{
+    display: flex;
+    justify-content: end;
+}
+
 .foundCard{
     font-size: 14px;
     font-weight: 400;
     opacity: 50%;
+    margin: 0;
+    color:#C1C5CE;
+
 }
 
 .card.cardSearchBg{
@@ -12,28 +25,44 @@
     word-wrap: break-word;
     background-clip: border-box;
     border-radius: .25rem;
-    background-color: #303036;
+    background-color: #343D46;
     border: transparent;
-    height: 12.5rem;
+    min-height: 12.5rem;
     max-width: 136px;
 
-}.lineCard{
-    padding: .5rem 1rem;
-    border-top: 1px solid rgba(0,0,0,.125);
-    width: 100%;
 }
+
 
 .card-body{
-    padding-left: 1.438rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
+.gridbtnLeft{
+    display: flex;
+    justify-content: flex-end;}
+
 .leftBtnCard{
-    
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #65737E;
+    margin-right: 0.5rem;
+    color: #ffffff;
+    font-size: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftIcon{
+    text-align: right;
+    font-size: 16px;
+}
+
+.rightBtnCard{
     height: 1.5rem;
     width: 5.5rem;
-    background-color: #4F5B67;
+    background-color: #65737E;
     color: #ffffff;
     border-color: transparent;
     text-align: left;
@@ -41,22 +70,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-}.leftIcon{
-    text-align: right;
 }
 
-.rightBtnCard{
-    height: 1.5rem;
-    width: 1.5rem;
-    background-color: #4F5B67;
-    margin-right: 0.5rem;
-    color: #ffffff;
-    font-size: 0.625rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}.rightIcon{
+.rightIcon{
     text-align: center;
+    font-size: 16px;
 }
 
 .imgCard{

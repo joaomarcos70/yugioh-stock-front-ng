@@ -21,6 +21,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AddCollectionComponent } from './views/add-collection/add-collection.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { UiSwitchModule } from 'ngx-toggle-switch';
+import { FilterComponent } from './shared/components/filter/filter.component';
 
 
 registerLocaleData(pt);
@@ -34,6 +35,7 @@ registerLocaleData(pt);
     SearchCardComponent,
     AddCollectionComponent,
     SpinnerComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

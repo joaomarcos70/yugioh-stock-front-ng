@@ -1,52 +1,57 @@
-<app-base middleInputHeader="Buscar carta"
-leftIconClass="ph-arrow-left-bold"
-rightIconClass="ph-funnel-simple-bold"
-(leftIconAction)="previousPage()"
-(rightIconAction)="filterPage()"
-  >
-    <div class="rowConfig">
-        <nz-input-group [nzSuffix]="suffixIconSearch">
-            <input class="inputText" [(ngModel)]="params.fname" type="text" nz-input placeholder="Buscar carta" />
-        </nz-input-group>
-        <ng-template #suffixIconSearch>
-            <i class="iconTextSearch" (click)="searchCards()" nz-icon nzType="search"></i>
-        </ng-template>
+<app-base middleInputHeader="Buscar carta" leftIconClass="ph-arrow-left-bold" rightIconClass="ph-funnel-simple-bold"
+    (leftIconAction)="previousPage()" (rightIconAction)="filterAction()">
+    <div class="row">
+        <div class="rowConfig">
+            <nz-input-group [nzSuffix]="suffixIconSearch">
+                <input class="inputText" [(ngModel)]="params.fname" type="text" nz-input placeholder="Buscar carta" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+                <i class="iconTextSearch" (click)="searchCards()" nz-icon nzType="search"></i>
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p class="foundCard">{{ txtFoundCards }}</p>
+        </div>
     </div>
 
     <div *ngIf="cards && cards.length > 0">
-        <div class="rowConfig">
-            <p class="foundCard">{{ txtFoundCards }}</p>
-        </div>
-
-        <div class="container" style="padding: unset;">
+        <div class="container">
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-3 gy-4" style="height: 12.5rem;"
+                <div class="col-6 col-sm-6 col-md-3 gy-4 gridCard" style="height: 12.5rem;"
                     *ngFor="let card of cards | paginate: { itemsPerPage: cardSearchModel.limit, currentPage: currentPage, totalItems: foundCards };let i = index">
                     <div class="card cardSearchBg" style="width: 8.5rem;">
-                        <div class="gy-3 card-body">
-                            <img class="imgCard" src="{{ card.card_images[0].image_url }}" />
+
+                        <div class="row">
+                            <div class="card-body">
+                                <img class="imgCard" src="{{ card.card_images[0].image_url }}" />
+                            </div>
                         </div>
-                        <div class="lineCard">
-                            <div class="row">
-                                <div class="col-8 col-sm-8 col-md-8">
-                                    <button
-                                        type="button"
-                                        (click)="addCollection(card.id)"
-                                        class="btn btn-light leftBtnCard"
-                                    >
-                                        <i class="ph-folder-notch-plus-bold leftIcon"></i>Coleção
-                                    </button>
-                                </div>
-                                <div class="col-4 col-sm-4 col-md-4">
-                                    <button type="button" class="btn rightBtnCard">
-                                        <i class="ph-heart-straight-bold rightIcon"></i>
-                                    </button>
-                                </div>
+
+                        <div class="row lineCard">
+                            <div class="col-4 col-sm-4 col-md-4 gridbtnLeft" style="padding: 0px;">
+                                <button type="button" class="btn leftBtnCard">
+                                    <i class="ph-heart-straight-bold leftIcon"></i>
+                                </button>
+                            </div>
+                            <div class="col-8 col-sm-8 col-md-8" style="padding: 0px;">
+                                <button type="button" (click)="addCollection(card.id)"
+                                    class="btn btn-light rightBtnCard">
+                                    <i class="ph-folder-notch-plus-bold rightIcon"></i>Coleção
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+            <app-filter *ngIf="showSideMenu" (dismissData)="showSideMenu = false">
+
+            </app-filter>
+              
         </div>
     </div>
 </app-base>
