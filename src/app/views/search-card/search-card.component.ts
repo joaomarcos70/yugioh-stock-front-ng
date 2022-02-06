@@ -26,6 +26,8 @@ export class SearchCardComponent implements OnInit {
   cards: CardInterface[] = new Array<CardInterface>()
   cardSearchModel: cardSearch = new cardSearch()
 
+  showSideMenu:boolean = false
+
 
 
   constructor(private YgoService: YGOservice,
@@ -40,8 +42,8 @@ export class SearchCardComponent implements OnInit {
     this.location.back()
   }
 
-  filterPage(){
-    
+  filterAction(){
+    this.showSideMenu = !this.showSideMenu
   }
 
   searchCards() {

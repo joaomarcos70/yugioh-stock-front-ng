@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+.gridCard{
+    display: flex;
+    justify-content: end;
+}
+
 .foundCard{
     font-size: 14px;
     font-weight: 400;
