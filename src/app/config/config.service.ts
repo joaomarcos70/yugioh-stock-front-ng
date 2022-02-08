@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { RootObject } from '../interfaces/listModel.interface';
 
 
 @Injectable()
@@ -31,6 +32,27 @@ export class ConfigService {
                 catchError(this.handleError)
             );
 
+    }
+
+    get(endPoint: String){
+        return this.http.get<RootObject>(this.baseUrl + endPoint)
+        .pipe(
+            catchError(this.handleError)
+        );
+    }
+
+    getWithQueryParams(endPoint: String, params){
+        return this.http.get<RootObject>(this.baseUrl + endPoint ,{params:params})
+        .pipe(
+            catchError(this.handleError)
+        );
+    }
+
+    getWithparams(endPoint: String, flag){
+        return this.http.get<RootObject>(this.baseUrl + endPoint, {params:flag})
+        .pipe(
+            catchError(this.handleError)
+        );
     }
 
 

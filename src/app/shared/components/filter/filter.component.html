@@ -14,8 +14,8 @@
     <div class="row" style="padding-bottom:16px;">
       <div class="col-12">
         <div class="form-floating" style="color: #ffffff;">
-          <select class="form-select selectdropdownlabel" id="floatingSelect">
-            <option value="1">One</option>
+          <select class="form-select selectdropdownlabel" (change)="changeTypeCard(type.value)" id="floatingSelect">
+            <option *ngFor="let type of typeCardList" value="type.value">{{type.name}}</option>
           </select>
           <label for="floatingSelect">Tipo de carta</label>
         </div>
@@ -25,7 +25,7 @@
       <div class="col-12">
         <div class="form-floating" style="color: #ffffff;">
           <select class="form-select selectdropdownlabel" id="floatingSelect">
-            <option value="1">One</option>
+            <option *ngFor="let attribute of attributeCardList" value="attribute.value">{{attribute.name}}</option>
           </select>
           <label for="floatingSelect">Atributo</label>
         </div>
@@ -35,7 +35,7 @@
       <div class="col-12">
         <div class="form-floating" style="color: #ffffff;">
           <select class="form-select selectdropdownlabel" id="floatingSelect">
-            <option value="1">One</option>
+            <option *ngFor="let race of raceCardList" value="race.value">{{race.name}}</option>
           </select>
           <label for="floatingSelect">Tipo</label>
         </div>
@@ -45,7 +45,7 @@
       <div class="col-12">
         <div class="form-floating" style="color: #ffffff;">
           <select class="form-select selectdropdownlabel" id="floatingSelect">
-            <option value="1">One</option>
+            <option *ngFor="let attribute of attributeCardList" value="attribute.value">{{attribute.name}}</option>
           </select>
           <label for="floatingSelect">Raridade</label>
         </div>

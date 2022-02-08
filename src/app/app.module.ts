@@ -22,6 +22,7 @@ import { AddCollectionComponent } from './views/add-collection/add-collection.co
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 import { FilterComponent } from './shared/components/filter/filter.component';
+import { FiltersBuildService } from './services/filtersBuild.service';
 
 
 registerLocaleData(pt);
@@ -51,6 +52,7 @@ registerLocaleData(pt);
     ConfigService,
     LoginService,
     YGOservice,
+    FiltersBuildService,
     { provide: NZ_I18N, useValue: pt_BR }
   ],
   bootstrap: [AppComponent]
