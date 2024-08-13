@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { forOwn } from \"lodash\";\nexport class cardSearch {\n  constructor(data) {\n    this.skip = 0;\n    this.totalItems = 0;\n    this.limit = 10;\n    this.populate(data);\n  }\n  populate(data) {\n    forOwn(data, (value, key) => {\n      this[key] = value;\n    });\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

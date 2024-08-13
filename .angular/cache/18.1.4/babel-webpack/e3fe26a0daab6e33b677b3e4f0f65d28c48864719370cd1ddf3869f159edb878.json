@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { forOwn } from 'lodash';\nexport class Login {\n  constructor(data) {\n    this.email = '';\n    this.password = '';\n    this.populate(data);\n  }\n  populate(data) {\n    forOwn(data, (value, key) => {\n      this[key] = value;\n    });\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
