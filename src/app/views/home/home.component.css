@@ -1,9 +1,53 @@
-.container{
+.container {
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
-.homeBorderBtn{
+.container .cards-home {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.container .cards-home .card-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+}
+
+.container .cards-home .card-container .card-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+
+    & > i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.card-home-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+
+    > h1,
+    p {
+        margin: 0;
+    }
+}
+
+.homeBorderBtn {
     height: 3.5rem;
     width: 3.5rem;
     font-size: 2rem;
@@ -15,4 +59,4 @@
 
 .grid-config {
     padding-bottom: 1.5rem;
-  }
+}

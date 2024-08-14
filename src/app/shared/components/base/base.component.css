@@ -1,69 +1,75 @@
-.header{
-   background-color: #23232E;
-   min-height: 4.5rem;
-   width: 100%;
-   color: #ffffff;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-bottom: 24px;
+.container-fluid {
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
-.rowConfigHeader{
-   width: 100%;
-   display: flex;
-   align-items: center;
+.header {
+    background-color: #23232e;
+    min-height: 4.5rem;
+    width: 100%;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
 }
 
-.content{
-   background-color:#23232E;
-   padding-right: 0.5rem;
-   padding-left: 0.5rem;
-   color: #ffffff;
+.rowConfigHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.iconButtonHeader{
-   border-color:transparent;
-   background-color: transparent;
-   height: 3rem;
-   width: 3rem;
-   align-items: center;
+.content {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    color: #ffffff;
 }
 
-.middleInputHeader{
-   text-align: center;
-   color: #ffffff;
-   font-weight: 700;
-   font-size: 1.25rem;
+.iconButtonHeader {
+    border-color: transparent;
+    background-color: transparent;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
 }
 
-.background{
-   background-color: #23232E;
-   min-width: 100%;
-   min-height: 100%;
+.middleInputHeader {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 
-.background.dark{
-   background-color: #23232E;
+.background {
+    background-color: #23232e;
+    min-width: 100%;
+    min-height: 100%;
 }
 
-.leftBtnHeader{
-   text-align: left;
-   color: #ffffff;
-   font-size: 24px;
+.background.dark {
+    background-color: #23232e;
 }
 
-.rightBtnHeader{
-   text-align: right;
-   color: #ffffff;
-   font-size: 24px;
+.leftBtnHeader {
+    text-align: left;
+    color: #ffffff;
+    font-size: 24px;
 }
 
-.headerIconStyle{
-   width: 1.5rem;
-   height: 1.5rem;
-   color: #ffffff;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+.rightBtnHeader {
+    text-align: right;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.headerIconStyle {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
