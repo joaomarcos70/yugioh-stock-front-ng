@@ -1,27 +1,28 @@
 <div class="container-fluid background">
     <div class="row">
         <div class="header">
-            <div class="col-2 text-center">
-                <button [disabled]="isDisabledLeftBtn" type="button" class="btn" (click)="emitLeftBtn()">
+            <div class="header-icon">
+                <button *ngIf="!isDisabledLeftBtn" [disabled]="isDisabledLeftBtn" type="button" class="btn"
+                    (click)="emitLeftBtn()">
                     <i class="leftBtnHeader" [ngClass]="leftIconClass"></i>
                 </button>
             </div>
 
-            <div class="col-8 text-center">
+            <div class="header-title">
                 <span class="middleInputHeader">
                     {{ middleInputHeader }}
                 </span>
             </div>
 
-            <div class="col-2 text-center">
-                <button [disabled]="isDisabledRightBtn" type="button" class="btn" (click)="emitRightBtn()">
+            <div class="header-icon">
+                <button *ngIf="!isDisabledRightBtn" [disabled]="isDisabledRightBtn" type="button" class="btn"
+                    (click)="emitRightBtn()">
                     <i class="rightBtnHeader" [ngClass]="rightIconClass"></i>
                 </button>
             </div>
         </div>
     </div>
-
-    <div class="col-12">
+    <div class="container-outlt">
         <ng-content></ng-content>
     </div>
 </div>

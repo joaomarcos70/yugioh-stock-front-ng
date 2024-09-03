@@ -1,91 +1,148 @@
-.container{
+.search-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
     padding: 0;
     margin: 0;
 }
 
-.gridCard{
+.card-wrap {
     display: flex;
-    justify-content: end;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
 }
 
-.foundCard{
+.input-search-cards {
+    width: 50%;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.foundCard {
     font-size: 14px;
     font-weight: 400;
     opacity: 50%;
     margin: 0;
-    color:#C1C5CE;
-
+    color: #c1c5ce;
 }
 
-.card.cardSearchBg{
-    position: relative;
+.card.cardSearchBg {
     display: flex;
     flex-direction: column;
-    min-width: 0;
     word-wrap: break-word;
     background-clip: border-box;
-    border-radius: .25rem;
-    background-color: #343D46;
+    border-radius: 0.25rem;
+    background-color: #343d46;
     border: transparent;
-    min-height: 12.5rem;
-    max-width: 136px;
-
+    width: 100%;
 }
 
-
-.card-body{
+.card-body {
     display: flex;
     justify-content: center;
 }
 
-.gridbtnLeft{
+.gridbtnLeft {
     display: flex;
-    justify-content: flex-end;}
-
-.leftBtnCard{
-    height: 1.5rem;
-    width: 1.5rem;
-    background-color: #65737E;
-    margin-right: 0.5rem;
-    color: #ffffff;
-    font-size: 0.625rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
 }
 
-.leftIcon{
+.leftIcon {
     text-align: right;
     font-size: 16px;
 }
 
-.rightBtnCard{
-    height: 1.5rem;
-    width: 5.5rem;
-    background-color: #65737E;
-    color: #ffffff;
-    border-color: transparent;
-    text-align: left;
-    font-size: 0.625rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.rightIcon{
+.rightIcon {
     text-align: center;
     font-size: 16px;
 }
 
-.imgCard{
-    height: 8rem;
-    width:  5.563rem;
+.imgCard {
+    height: auto;
+    width: 200px;
     border-radius: 4px;
+    pointer-events: none;
 }
 
-
-.cardRowConfig{
-    padding-bottom:16px;
+.cardRowConfig {
+    padding-bottom: 16px;
     padding-right: 16px;
 }
 
+.buttons-card {
+    background-color: #65737e;
+    color: #ffffff;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    padding: 16px;
+    line-height: 16px;
+    cursor: pointer;
+}
+.lineCard {
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+}
+
+.header-search .search-card-by-name {
+    width: 100%;
+}
+
+.search-card-by-name input {
+    width: 100%;
+}
+
+.header-search .pagination {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.pagination select {
+    background-color: #343d46;
+    color: #c1c5ce;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    font-weight: 400;
+    padding: 8px;
+}
+
+@media (max-width: 768px) {
+    .card.cardSearchBg {
+        width: 100%;
+    }
+    .imgCard {
+        width: 100px;
+    }
+    .cardRowConfig {
+        padding-bottom: 8px;
+        padding-right: 8px;
+    }
+    .lineCard {
+        padding: 8px;
+        gap: 8px;
+    }
+    .buttons-card {
+        padding: 0.5rem 0.5rem;
+    }
+}

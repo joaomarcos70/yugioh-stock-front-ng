@@ -1,75 +1,51 @@
-<app-base middleInputHeader="" leftIconClass="" rightIconClass="">
-        <div class="row">
-            <div class="col-12 text-center">
+<div class="login-container flex items-center">
+    <div class="content">
+        <div class="slogan">
+            <div class=" text-center">
                 <h1 class="iconLogin">Icon.png</h1>
             </div>
         </div>
-    
-        <div class="row">
-            <div class="row">
-                <label class="form-label txtLogin">E-mail</label>
-            </div>
-            <div class="col-12">
-                <input
-                    [(ngModel)]="body.email"
-                    type="email"
-                    class="form-control inputLogin"
-                    id="email"
-                    placeholder="Digite seu e-mail"
-                />
-            </div>
+        <div class="input-login">
+            <label class="form-label txtLogin">E-mail</label>
+            <input [(ngModel)]="body.email" type="email" class="form-control inputLogin" id="email"
+                placeholder="Digite seu e-mail" />
         </div>
-    
-        <div class="row">
-            <div class="row">
-                <label class="form-label txtLogin">Senha</label>
-            </div>
-            <div class="inputIcon col-12">
-    
+
+        <div class="input-login">
+            <label class="form-label txtLogin">Senha</label>
+            <div class="inputIcon">
                 <span class="eye" (click)="revealPassword()">
                     <i class="iconTextSearch ph-eye-bold" id="openEye"></i>
                     <i class="iconTextSearch ph-eye-slash-bold" id="closeEye"></i>
                 </span>
-                <input
-                    [(ngModel)]="body.password"
-                    type="password"
-                    class="form-control inputLogin"
-                    id="password"
-                    placeholder="Senha"
-                />
+                <input [(ngModel)]="body.password" type="password" class="form-control inputLogin" id="password"
+                    placeholder="Senha" />
             </div>
         </div>
-    
-        <div class="row">
-            <div class="col-7 leftColumn">
-                <ui-switch
-                    value="submit"
-                    style="margin-right: 8px"
-                    defaultBoColor="transparent"
-                    defaultBgColor="#4F5B67"
-                    size="small"
-                    color="#2CAECB"
-                    switchColor="#FFFFFF"
-                    [(ngModel)]="isRememberPassword"
-                    (change)="changeRememberPass()"
-                ></ui-switch>
+
+        <div class="content-info-users">
+            <div>
+                <ui-switch value="submit" style="margin-right: 8px" defaultBoColor="transparent"
+                    defaultBgColor="#4F5B67" size="small" color="#2CAECB" switchColor="#FFFFFF"
+                    [(ngModel)]="isRememberPassword" (change)="changeRememberPass()"></ui-switch>
                 Lembrar senha
             </div>
-    
-            <div class="col-5 rightColumn">
+
+            <div>
                 <p class="txtLogin"><a class="deepLinkLogin" href="">Esqueci a senha</a></p>
             </div>
         </div>
-    
-        <div class="row">
-            <div class="col-12 btn-group">
-                <button type="submit" value="submit" class="btn btn-secondary submitLogin" (click)="sendtoBack()">Entrar</button>
+
+        <div class="underline-actions">
+            <button type="submit" value="submit" class="btn btn-secondary submitLogin"
+                (click)="sendtoBack()">Entrar</button>
+
+            <div class="row">
+                <div class=" text-center">
+                    <p class="txtLogin">Noob por aqui ? <a class="deepLinkLogin" href="">Crie uma conta</a></p>
+                </div>
             </div>
         </div>
-    
-        <div class="row">
-            <div class="col-12 text-center">
-                <p class="txtLogin">Noob por aqui ? <a class="deepLinkLogin" href="">Crie uma conta</a></p>
-            </div>
-        </div>    
-</app-base>
+
+    </div>
+</div>
