@@ -1,57 +1,69 @@
 <app-base middleInputHeader="Buscar carta" leftIconClass="ph-arrow-left-bold" rightIconClass="ph-funnel-simple-bold"
     (leftIconAction)="previousPage()" (rightIconAction)="filterAction()">
-    <div class="row">
-        <div class="rowConfig">
-            <nz-input-group [nzSuffix]="suffixIconSearch">
-                <input class="inputText" [(ngModel)]="params.fname" type="text" nz-input placeholder="Buscar carta" />
-            </nz-input-group>
-            <ng-template #suffixIconSearch>
-                <i class="iconTextSearch" (click)="searchCards()" nz-icon nzType="search"></i>
-            </ng-template>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-12">
-            <p class="foundCard">{{ txtFoundCards }}</p>
-        </div>
-    </div>
+    <div class="search-card-container">
+        <div class="header-search">
+            <div class="search-card-by-name">
+                <nz-input-group [nzSuffix]="suffixIconSearch">
+                    <input class="inputText input-search-cards" (keyup)="searchByName($event)" type="text" nz-input
+                        placeholder="Buscar carta" />
+                </nz-input-group>
+                <ng-template #suffixIconSearch>
+                    <i class="iconTextSearch" (click)="searchCards()" nz-icon nzType="search"></i>
+                </ng-template>
 
-    <div *ngIf="cards && cards.length > 0">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 col-sm-6 col-md-3 gy-4 gridCard" style="height: 12.5rem;"
-                    *ngFor="let card of cards | paginate: { itemsPerPage: cardSearchModel.limit, currentPage: currentPage, totalItems: foundCards };let i = index">
-                    <div class="card cardSearchBg" style="width: 8.5rem;">
-
-                        <div class="row">
-                            <div class="card-body">
-                                <img class="imgCard" src="{{ card.card_images[0].image_url }}" />
-                            </div>
-                        </div>
-
-                        <div class="row lineCard">
-                            <div class="col-4 col-sm-4 col-md-4 gridbtnLeft" style="padding: 0px;">
-                                <button type="button" class="btn leftBtnCard">
-                                    <i class="ph-heart-straight-bold leftIcon"></i>
-                                </button>
-                            </div>
-                            <div class="col-8 col-sm-8 col-md-8" style="padding: 0px;">
-                                <button type="button" (click)="addCollection(card.id)"
-                                    class="btn btn-light rightBtnCard">
-                                    <i class="ph-folder-notch-plus-bold rightIcon"></i>Coleção
-                                </button>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="foundCard">{{ txtFoundCards }}</p>
                     </div>
                 </div>
             </div>
 
+            <div class="pagination-container">
+                <div class="pagination">
+                    <select name="cardsByPage" [(ngModel)]="itemsPerPage" id="cardsByPage"
+                        (change)="changeLimitPerPage()">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <button type="button" class="buttons-card" (click)="previous()">
+                        <i class="ph-arrow-left-bold"></i>ant
+                    </button>
+                    <button type="button" class="buttons-card" (click)="next()">
+                        prox<i class="ph-arrow-right-bold"></i>
+                    </button>
+                </div>
+                <p>{{paginationText}}</p>
 
-            <app-filter *ngIf="showSideMenu" (dismissData)="showSideMenu = false">
+            </div>
 
-            </app-filter>
-              
         </div>
+
+        <div class="card-wrap">
+            <div *ngFor="let card of cards let i = index">
+
+                <div class="card cardSearchBg">
+                    <div class="card-body">
+                        <img class="imgCard" src="{{ card.card_images[0].image_url }}" />
+                    </div>
+
+                    <div class="lineCard">
+                        <button type="button" class="buttons-card">
+                            <i class="ph-heart-straight-bold"></i>
+                        </button>
+                        <button type="button" (click)="addCollection(card.id)" class="buttons-card">
+                            <i class="ph-folder-notch-plus-bold"></i>Coleção
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <app-filter *ngIf="showSideMenu" (dismissData)="showSideMenu = false"
+            (filteredData)="searchCardsWithFilter($event)"></app-filter>
     </div>
+
+
 </app-base>

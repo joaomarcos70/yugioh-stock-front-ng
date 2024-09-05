@@ -1,10 +1,9 @@
-.container{
-    margin: 0;
-    padding: 0;
+.content {
+    width: 100%;
 }
 
 .countBtn {
-    background-color: #343D46;
+    background-color: #343d46;
     color: #ffffff;
     height: 2.5rem;
     width: 100%;
@@ -15,7 +14,7 @@
 }
 
 .inputCountBtn {
-    background-color: #343D46;
+    background-color: #343d46;
     border-color: transparent;
     text-align: center;
     font-size: 1rem;
@@ -53,17 +52,17 @@ input::-webkit-inner-spin-button {
 .secondLineCardInfo {
     font-size: 0.625rem;
     font-weight: 700;
-    color: #C1C5CE;
+    color: #c1c5ce;
 }
 
 .thirdLineCardInfo {
-    color: #C1C5CE;
+    color: #c1c5ce;
     font-size: 0.75rem;
     font-weight: 400;
 }
 
-.btnAddCollection{
-    background-color: #4F5B67;
+.btnAddCollection {
+    background-color: #4f5b67;
     height: 2.5rem;
     border-color: transparent;
     font-size: 0.875rem;
@@ -71,16 +70,49 @@ input::-webkit-inner-spin-button {
     border-radius: 8px;
 }
 
-.btnDescription{
-    background-color: #4F5B67;
+.btnDescription {
+    background-color: #4f5b67;
     border-color: transparent;
     font-size: 0.75rem;
     font-weight: 700;
     border-radius: 8px;
 }
 
-.attributeIcon{
+.attributeIcon {
     width: 1rem;
     height: 1rem;
     margin-right: 0.5rem;
+}
+
+.img-info-container {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+
+    & .img-detailed-container {
+        width: 30%;
+        min-width: 170px;
+        height: auto;
+        /*         min-height: 240px;
+        min-width: 170px; */
+
+        & img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    & .info-card-container {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        & p {
+            font-size: 12px;
+            width: 100%;
+            @media (max-width: 768px) {
+                max-height: 140px;
+                overflow-y: auto;
+            }
+        }
+    }
 }

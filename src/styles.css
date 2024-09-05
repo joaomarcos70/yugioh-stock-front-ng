@@ -1,15 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-    font-family: "Poppins" !important;
+    font-family: 'Poppins' !important;
+    box-sizing: border-box;
 }
 
-.container{
-    margin:0;
-    padding:0
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: none;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+body,
+html {
+    color: #ffffff;
+    background-color: #23232e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
 }
 
 .inputText {
@@ -20,7 +53,7 @@
     color: #ffffff;
     font-size: 14px;
     font-weight: 400;
-    background-color: #343D46;
+    background-color: #343d46;
     background-image: none;
     border-radius: 8px;
     transition: all 0.3s;
@@ -64,16 +97,16 @@
     padding-bottom: 12px;
 }
 
-.selectdropdownlabel{
+.selectdropdownlabel {
     position: relative;
     display: inline-block;
     height: 40px;
     width: 100%;
-    background-color: #343D46;
+    background-color: #343d46;
     border-radius: 0.5rem;
     border-color: transparent;
     font-weight: 400;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     color: #ffffff;
-    background-image: url("./assets/necessaryIcons/caret.svg");
+    background-image: url('./assets/necessaryIcons/caret.svg');
 }

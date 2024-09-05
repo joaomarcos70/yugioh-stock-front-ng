@@ -1,21 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+    constructor(private router: Router) {}
 
-
-  constructor(private router: Router) { }
-
-  ngOnInit() {
-  }
-
-  sendToSearch(){
-    this.router.navigate(['search-card'])
-  }
-
+    sendToSearch() {
+        this.router.navigate(['search-card'])
+    }
 }

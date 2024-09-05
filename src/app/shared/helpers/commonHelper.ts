@@ -1,11 +1,10 @@
-import { AttributeCard } from "../enums/attributeCard.enum";
-import { CardState } from "../enums/cardState.enum";
-import { LanguageCard } from "../enums/languageCard.enum";
-import { RarityCard } from "../enums/rarityCard.enum";
+import { AttributeCard } from '../enums/attributeCard.enum'
+import { CardState } from '../enums/cardState.enum'
+import { LanguageCard } from '../enums/languageCard.enum'
+import { RarityCard } from '../enums/rarityCard.enum'
 
 export class commonHelper {
-
-    getAllCardAttribute(): AttributeCard[]{
+    getAllCardAttribute(): AttributeCard[] {
         return [
             AttributeCard.DARK,
             AttributeCard.DIVINE,
@@ -17,27 +16,26 @@ export class commonHelper {
         ]
     }
 
-    transcriptAttributeCard(attributeCard: AttributeCard){
-        console.log("atributo",attributeCard);
-        switch(attributeCard){
+    transcriptAttributeCard(attributeCard: AttributeCard) {
+        switch (attributeCard) {
             case AttributeCard.DARK:
-                return "../../../assets/attributeIcons/DARK.svg"
+                return '../../../assets/attributeIcons/DARK.svg'
             case AttributeCard.DIVINE:
-                return "../../../assets/attributeIcons/DIVINE.svg"
+                return '../../../assets/attributeIcons/DIVINE.svg'
             case AttributeCard.EARTH:
-                return "../../../assets/attributeIcons/EARTH.svg"
+                return '../../../assets/attributeIcons/EARTH.svg'
             case AttributeCard.FIRE:
-                return "../../../assets/attributeIcons/FIRE.svg"
+                return '../../../assets/attributeIcons/FIRE.svg'
             case AttributeCard.LIGHT:
-                return "../../../assets/attributeIcons/LIGHT.svg"
+                return '../../../assets/attributeIcons/LIGHT.svg'
             case AttributeCard.WATER:
-                return "../../../assets/attributeIcons/WATER.svg"
+                return '../../../assets/attributeIcons/WATER.svg'
             case AttributeCard.WIND:
-                return "../../../assets/attributeIcons/WIND.svg"
+                return '../../../assets/attributeIcons/WIND.svg'
         }
     }
 
-    getAllCardState(): CardState[]{
+    getAllCardState(): CardState[] {
         return [
             CardState.NOVA,
             CardState.QUASE_NOVA,
@@ -48,29 +46,29 @@ export class commonHelper {
         ]
     }
 
-    transcriptCardState(cardState: CardState){
-        switch (cardState){
+    transcriptCardState(cardState: CardState) {
+        switch (cardState) {
             case CardState.NOVA:
-                return "Nova (M)"
+                return 'Nova (M)'
 
             case CardState.QUASE_NOVA:
-                return "Quase nova (NM)"
+                return 'Quase nova (NM)'
 
             case CardState.POUCO_USADA:
-                return "Ligeiramente jogada (SP)"
+                return 'Ligeiramente jogada (SP)'
 
             case CardState.USADA_MODERADAMENTE:
-                return "Moderadamente usada (MP)"
+                return 'Moderadamente usada (MP)'
 
             case CardState.MUITO_USADA:
-                return "Bastante jogada (HP)"
+                return 'Bastante jogada (HP)'
 
             case CardState.DANIFICADA:
-                return "Danificada (D)"
+                return 'Danificada (D)'
         }
     }
 
-    getAllLanguageCards(): LanguageCard[]{
+    getAllLanguageCards(): LanguageCard[] {
         return [
             LanguageCard.ALEMAO,
             LanguageCard.ESPANHOL,
@@ -81,25 +79,25 @@ export class commonHelper {
         ]
     }
 
-    transcriptLanguageCards(languageCard: LanguageCard){
-        switch (languageCard){
+    transcriptLanguageCards(languageCard: LanguageCard) {
+        switch (languageCard) {
             case LanguageCard.ALEMAO:
-                return "Alemão"
+                return 'Alemão'
 
             case LanguageCard.ESPANHOL:
-                return "Espanhol"
+                return 'Espanhol'
 
             case LanguageCard.FRANCES:
-                return "Francês"
+                return 'Francês'
 
             case LanguageCard.INGLES:
-                return "Inglês"
+                return 'Inglês'
 
             case LanguageCard.ITALIANO:
-                return "Italiano"
+                return 'Italiano'
 
             case LanguageCard.PORTUGUES:
-                return "Portugês"
+                return 'Portugês'
         }
     }
 
@@ -121,37 +119,37 @@ export class commonHelper {
     transcriptRarityCards(rarityCard: RarityCard) {
         switch (rarityCard) {
             case RarityCard.COMUM:
-                return "Comum";
+                return 'Comum'
 
             case RarityCard.GOLD:
-                return "Gold";
+                return 'Gold'
 
             case RarityCard.GOLD_SECRET:
-                return "Gold Secret";
+                return 'Gold Secret'
 
             case RarityCard.PLATINUM:
-                return "Platinum";
+                return 'Platinum'
 
             case RarityCard.PRISMATIC:
-                return "Prismatic";
+                return 'Prismatic'
 
             case RarityCard.RARA:
-                return "Rara";
+                return 'Rara'
 
             case RarityCard.SECRET:
-                return "Secret";
+                return 'Secret'
 
             case RarityCard.SUPER:
-                return "Super";
+                return 'Super'
 
             case RarityCard.ULTIMATE:
-                return "Ultimate";
+                return 'Ultimate'
 
             case RarityCard.ULTRA:
-                return "Ultra";
+                return 'Ultra'
 
             default:
-                return rarityCard;
+                return rarityCard
         }
     }
 }

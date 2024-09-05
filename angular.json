@@ -26,8 +26,7 @@
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -40,8 +39,30 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -57,21 +78,25 @@
           }
         },
         "serve": {
+          "defaultConfiguration": "development",
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "yugioh-stock-front-ng:build",
+            "buildTarget": "yugioh-stock-front-ng:build",
             "disableHostCheck": true
           },
           "configurations": {
             "production": {
-              "browserTarget": "yugioh-stock-front-ng:build:production"
+              "buildTarget": "yugioh-stock-front-ng:build:production"
+            },
+            "development": {
+              "buildTarget": "yugioh-stock-front-ng:build:development"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "yugioh-stock-front-ng:build"
+            "buildTarget": "yugioh-stock-front-ng:build"
           }
         },
         "test": {
@@ -134,6 +159,5 @@
         }
       }
     }
-  },
-  "defaultProject": "yugioh-stock-front-ng"
+  }
 }

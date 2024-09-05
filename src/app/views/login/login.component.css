@@ -1,6 +1,26 @@
-
 .iconLogin {
     margin-bottom: 4.5rem;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2f3640;
+}
+
+.login-container .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem;
+
+    @media (min-width: 768px) {
+        width: 50%;
+    }
 }
 
 .submitLogin {
@@ -9,6 +29,20 @@
     border-color: transparent;
     margin-top: 3.75rem;
     margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.input-login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.underline-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
 }
 
 .inputLogin {
@@ -24,15 +58,18 @@
 
 .inputIcon {
     transition: 0.3s;
+    position: relative;
 }
 
 .inputIcon span {
     position: absolute;
-    right: 0.625rem;
+    box-sizing: border-box;
+    right: 0;
     padding: 8px 8px 8px 8px;
     height: 2.5rem;
     transition: 0.3s;
 }
+
 ::placeholder {
     font-size: 0.875;
     font-weight: 400;
@@ -40,6 +77,7 @@
 
 .eye {
     position: absolute;
+    cursor: pointer;
 }
 
 #closeEye {
@@ -60,18 +98,9 @@
     color: #ffffff;
 }
 
-.leftColumn {
+.content-info-users {
     display: flex;
-    justify-content: flex-start;
-    font-size: 13px;
-    font-weight: 400;
-    padding-bottom: 2.5rem;
-}
-
-.rightColumn {
-    display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    padding-bottom: 2.5rem;
-
+    width: 100%;
 }

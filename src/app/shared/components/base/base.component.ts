@@ -5,7 +5,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
     templateUrl: './base.component.html',
     styleUrls: ['./base.component.css']
 })
-export class BaseComponent implements OnInit {
+export class BaseComponent {
     @Input() middleInputHeader: any
     @Input() leftIconClass: string = ''
     @Input() rightIconClass: string = ''
@@ -14,10 +14,6 @@ export class BaseComponent implements OnInit {
 
     @Output() leftIconAction: EventEmitter<any> = new EventEmitter()
     @Output() rightIconAction: EventEmitter<any> = new EventEmitter()
-
-    constructor() {}
-
-    ngOnInit() {}
 
     emitLeftBtn() {
         this.leftIconAction.emit()
