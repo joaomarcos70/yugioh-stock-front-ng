@@ -1,22 +1,22 @@
 <app-base middleInputHeader="Adicionar Carta" leftIconClass="ph-arrow-left-bold" (leftIconAction)="back()"
     rightIconClass="ph-funnel-simple-bold">
-    <div class="container">
-        <div class="row">
-            <div class="col-5 col-xs-5 col-sm-5 col-md-5 gy-3">
-                <img src="{{ card.card_images[0].image_url }}" class="img-fluid imgToAdd" />
+    <div class="content">
+        <div class="img-info-container">
+            <div class="img-detailed-container">
+                <img src="{{ card.card_images[0].image_url }}" />
             </div>
-            <div class="col-7 col-xs-7 col-sm-7 col-md-7 gy-3">
+            <div class="info-card-container">
                 <div class="row">
                     <h1 class="titleCardInfo">{{ card.name }}</h1>
                 </div>
                 <div class="row">
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 gy-2 gx-2">
+                    <div *ngIf="card.attribute" class="col-6 col-xs-6 col-sm-6 col-md-6 gy-2 gx-2">
                         <h1 class="secondLineCardInfo text-right">
                             <img class="attributeIcon" [src]="commonHelper.transcriptAttributeCard(card.attribute)" />
                             {{ card.attribute }}
                         </h1>
                     </div>
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 gy-2 gx-2">
+                    <div *ngIf="card.level" class="col-6 col-xs-6 col-sm-6 col-md-6 gy-2 gx-2">
                         <h1 class="secondLineCardInfo text-right">
                             <img class="attributeIcon" src="../../../assets/levelIcon/levelStar.svg" />
                             Nível {{ card.level }}
@@ -30,7 +30,7 @@
                 </div>
                 <div class="row text-left">
                     <div class="col-12 col-xs-12 col-sm-12 col-md-12 gy-2 gx-2">
-                        <button type="button" class="btn btn-secondary btnDescription">Descrição</button>
+                        <p>{{card.desc}}</p>
                     </div>
                 </div>
             </div>

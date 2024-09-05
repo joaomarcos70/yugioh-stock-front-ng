@@ -15,7 +15,6 @@ export class AddCollectionComponent implements OnInit {
     params: CardInterface = { num: 10, offset: 0 }
     card: Partial<CardInterface> = { name: '', card_images: [{ image_url: '' }] }
     commonHelper: commonHelper = new commonHelper()
-
     rarityList: any[] = []
     languageList: any[] = []
     stateCardList: any[] = []
@@ -39,7 +38,7 @@ export class AddCollectionComponent implements OnInit {
     }
 
     back() {
-        this.router.navigate(['/home'])
+        this.router.navigate(['/search-card'])
     }
 
     incrementCountCard() {
