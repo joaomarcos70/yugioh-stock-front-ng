@@ -1,7 +1,14 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { commonHelper } from '../../helpers/commonHelper'
-import { cardCategories, racesOfMonster, racesOfSpell, racesOfTrap, typeCards } from '../../helpers/card-attributes'
+import {
+    cardCategories,
+    cardLevels,
+    racesOfMonster,
+    racesOfSpell,
+    racesOfTrap,
+    typeCards
+} from '../../helpers/card-attributes'
 import { FilterContext } from 'src/app/services/filter.context'
 
 @Component({
@@ -21,6 +28,7 @@ export class FilterComponent implements OnInit {
     monsterRaces = racesOfMonster
     spellRaces = racesOfSpell
     trapRaces = racesOfTrap
+    cardLevels = cardLevels
 
     constructor(private fb: FormBuilder, private filterContext: FilterContext) {}
 
@@ -38,7 +46,8 @@ export class FilterComponent implements OnInit {
             typeCard: [''],
             cardCategorie: [''],
             cardRace: [{ value: '', disabled: true }],
-            attribute: ['']
+            attribute: [''],
+            level: ['']
         })
     }
 
@@ -48,8 +57,10 @@ export class FilterComponent implements OnInit {
             typeCard: this.filterContext.getFilter().typeCard,
             cardCategorie: this.filterContext.getFilter().cardCategorie,
             cardRace: this.filterContext.getFilter().cardRace,
-            attribute: this.filterContext.getFilter().attribute
+            attribute: this.filterContext.getFilter().attribute,
+            level: this.filterContext.getFilter().level
         })
+        this.onCategoryChange()
     }
 
     onCategoryChange() {
@@ -76,9 +87,21 @@ export class FilterComponent implements OnInit {
         }
     }
 
+    redefine() {
+        this.filterCardsFb.patchValue({
+            descCard: '',
+            typeCard: '',
+            cardCategorie: '',
+            cardRace: '',
+            attribute: '',
+            level: ''
+        })
+        this.filterCardsFb.get('cardRace').disable()
+        this.filterContext.setFilter(null)
+    }
+
     filter() {
         const filterData = this.filterCardsFb.value
-        console.log(this.filterCardsFb.value)
         this.filterContext.setFilter(filterData)
         this.filteredData.emit(filterData)
         document.body.style.overflow = 'auto'

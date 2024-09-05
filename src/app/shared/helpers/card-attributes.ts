@@ -88,3 +88,18 @@ export const racesOfTrap = [
     { id: 2, name: 'Contínuo', value: 'Continuous' },
     { id: 3, name: 'Contra-armadilha', value: 'Counter' }
 ]
+
+export const cardLevels = [
+    { id: 1, name: 'Level 1', value: 1 },
+    { id: 2, name: 'Level 2', value: 2 },
+    { id: 3, name: 'Level 3', value: 3 },
+    { id: 4, name: 'Level 4', value: 4 },
+    { id: 5, name: 'Level 5', value: 5 },
+    { id: 6, name: 'Level 6', value: 6 },
+    { id: 7, name: 'Level 7', value: 7 },
+    { id: 8, name: 'Level 8', value: 8 },
+    { id: 9, name: 'Level 9', value: 9 },
+    { id: 10, name: 'Level 10', value: 10 },
+    { id: 11, name: 'Level 11', value: 11 },
+    { id: 12, name: 'Level 12', value: 12 }
+]

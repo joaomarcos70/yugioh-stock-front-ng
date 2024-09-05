@@ -2,7 +2,7 @@
   <a href="javascript:void(0)" class="closebtn" (click)="closeMenuFilter()">&times;</a>
   <div class="overlay-content">
 
-    <div class="row" style="padding-bottom:16px;">
+    <!--     <div class="row" style="padding-bottom:16px;">
       <div class="col-12">
         <nz-input-group [nzSuffix]="suffixIconSearch">
           <input class="inputText" type="text" formControlName="descCard" nz-input placeholder="Descriação da carta"
@@ -12,19 +12,7 @@
           <i class="iconTextSearch" nz-icon nzType="search"></i>
         </ng-template>
       </div>
-    </div>
-
-    <div class="row" style="padding-bottom:16px;">
-      <div class="col-12">
-        <div class="form-floating" style="color: #ffffff; background-color: #343D46;">
-          <select class="form-select selectdropdownlabel" id="floatingSelect" formControlName="typeCard">
-            <option value="">selecione</option>
-            <option *ngFor="let type of typeCards" [value]="type.value">{{type.name}}</option>
-          </select>
-          <label for="floatingSelect">Tipo de carta</label>
-        </div>
-      </div>
-    </div>
+    </div> -->
 
     <div class="row" style="padding-bottom:16px;">
       <div class="col-12">
@@ -53,6 +41,18 @@
 
     <div class="row" style="padding-bottom:16px;">
       <div class="col-12">
+        <div class="form-floating" style="color: #ffffff; background-color: #343D46;">
+          <select class="form-select selectdropdownlabel" id="floatingSelect" formControlName="level">
+            <option value="">selecione</option>
+            <option *ngFor="let level of cardLevels" [value]="level.value">{{level.name}}</option>
+          </select>
+          <label for="floatingSelect">Nível / Rank</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="padding-bottom:16px;">
+      <div class="col-12">
         <div class="form-floating" style="color: #ffffff;">
           <select class="form-select selectdropdownlabel" id="floatingSelect" formControlName="cardRace">
             <option value="">selecione</option>
@@ -67,7 +67,7 @@
   <div class="row" style="padding-top: 100px;">
     <div class="col-6">
       <div class="col-12 btn-group">
-        <button class="btn btn-secondary resetBtn">Redefinir</button>
+        <button class="btn btn-secondary resetBtn" (click)="redefine()">Redefinir</button>
       </div>
     </div>
     <div class="col-6">

@@ -8,6 +8,7 @@ export interface IFilter {
     cardCategorie: string
     cardRace: string
     attribute: AttributeCard
+    level: number
 }
 
 @Injectable({

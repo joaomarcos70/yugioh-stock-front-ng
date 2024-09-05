@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs'
 import { CardInterface } from 'src/app/interfaces/cardSearch.interface'
 import { cardSearch } from 'src/app/models/CardSearch.model'
-import { IFilter } from 'src/app/services/filter.context'
+import { FilterContext, IFilter } from 'src/app/services/filter.context'
 import { YGOservice } from 'src/app/services/YGO.service'
 
 @Component({
@@ -34,14 +34,19 @@ export class SearchCardComponent implements OnInit {
 
     showSideMenu: boolean = false
 
-    constructor(private YgoService: YGOservice, private router: Router, private location: Location) {
+    constructor(
+        private YgoService: YGOservice,
+        private router: Router,
+        private location: Location,
+        private filterContext: FilterContext
+    ) {
         this.searchSubject.pipe(debounceTime(500), distinctUntilChanged()).subscribe({
             next: data => {
                 this.params = { fname: data.fname, offset: data.offset, num: data.num, ...data }
                 this.searchCards()
             },
             error: error => {
-                console.log(error)
+                alert({ message: 'Erro ao buscar cartas', error })
             }
         })
     }
@@ -103,10 +108,9 @@ export class SearchCardComponent implements OnInit {
             desc: filter.descCard,
             type: filter.cardCategorie,
             race: filter.cardRace ? filter.cardRace : '',
-            attribute: filter.attribute
+            attribute: filter.attribute,
+            level: filter.level
         }
-
-        console.log(this.params)
 
         this.searchSubject.next(this.params)
     }
@@ -123,7 +127,10 @@ export class SearchCardComponent implements OnInit {
         this.searchSubject.next({
             fname: this.params.fname,
             num: this.itemsPerPage,
-            offset: this.params.offset
+            offset: this.params.offset,
+            level: this.filterContext.getFilter().level,
+            attribute: this.filterContext.getFilter().attribute,
+            type: this.filterContext.getFilter().cardCategorie
         })
     }
 
@@ -132,7 +139,10 @@ export class SearchCardComponent implements OnInit {
         this.searchSubject.next({
             fname: name,
             num: this.itemsPerPage,
-            offset: this.params.offset
+            offset: this.params.offset,
+            level: this.filterContext.getFilter().level,
+            attribute: this.filterContext.getFilter().attribute,
+            type: this.filterContext.getFilter().cardCategorie
         })
     }
 

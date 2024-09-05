@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
     }
 
     changeRememberPass() {
-      console.log(this.isRememberPassword = !this.isRememberPassword);
-      this.isRememberPassword = !this.isRememberPassword
+        this.isRememberPassword = !this.isRememberPassword
     }
 
     revealPassword() {
