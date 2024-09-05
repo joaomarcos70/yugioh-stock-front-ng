@@ -19,21 +19,25 @@
                 </div>
             </div>
 
-
-            <div class="pagination">
-                <select name="cardsByPage" [(ngModel)]="itemsPerPage" id="cardsByPage" (change)="changeLimitPerPage()">
-                    <option value="10">10</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                <button type="button" class="buttons-card" (click)="previous()">
-                    <i class="ph-arrow-left-bold"></i>
-                </button>
+            <div class="pagination-container">
+                <div class="pagination">
+                    <select name="cardsByPage" [(ngModel)]="itemsPerPage" id="cardsByPage"
+                        (change)="changeLimitPerPage()">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <button type="button" class="buttons-card" (click)="previous()">
+                        <i class="ph-arrow-left-bold"></i>ant
+                    </button>
+                    <button type="button" class="buttons-card" (click)="next()">
+                        prox<i class="ph-arrow-right-bold"></i>
+                    </button>
+                </div>
                 <p>{{paginationText}}</p>
-                <button type="button" class="buttons-card" (click)="next()">
-                    <i class="ph-arrow-right-bold"></i>
-                </button>
+
             </div>
+
         </div>
 
         <div class="card-wrap">
@@ -57,7 +61,8 @@
             </div>
         </div>
 
-        <app-filter *ngIf="showSideMenu" (dismissData)="showSideMenu = false"></app-filter>
+        <app-filter *ngIf="showSideMenu" (dismissData)="showSideMenu = false"
+            (filteredData)="searchCardsWithFilter($event)"></app-filter>
     </div>
 
 

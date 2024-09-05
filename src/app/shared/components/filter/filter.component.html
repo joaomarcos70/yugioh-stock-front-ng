@@ -1,56 +1,68 @@
-<div id="myNav" class="overlay">
+<div id="myNav" class="overlay" [formGroup]="filterCardsFb">
   <a href="javascript:void(0)" class="closebtn" (click)="closeMenuFilter()">&times;</a>
   <div class="overlay-content">
+
     <div class="row" style="padding-bottom:16px;">
       <div class="col-12">
         <nz-input-group [nzSuffix]="suffixIconSearch">
-          <input class="inputText" type="text" nz-input placeholder="Descriação da carta" />
+          <input class="inputText" type="text" formControlName="descCard" nz-input placeholder="Descriação da carta"
+            style="width: 100%;" />
         </nz-input-group>
         <ng-template #suffixIconSearch>
           <i class="iconTextSearch" nz-icon nzType="search"></i>
         </ng-template>
       </div>
     </div>
+
     <div class="row" style="padding-bottom:16px;">
       <div class="col-12">
-        <div class="form-floating" style="color: #ffffff;">
-          <select class="form-select selectdropdownlabel" id="floatingSelect">
-            <option value="1">One</option>
+        <div class="form-floating" style="color: #ffffff; background-color: #343D46;">
+          <select class="form-select selectdropdownlabel" id="floatingSelect" formControlName="typeCard">
+            <option value="">selecione</option>
+            <option *ngFor="let type of typeCards" [value]="type.value">{{type.name}}</option>
           </select>
           <label for="floatingSelect">Tipo de carta</label>
         </div>
       </div>
     </div>
+
     <div class="row" style="padding-bottom:16px;">
       <div class="col-12">
         <div class="form-floating" style="color: #ffffff;">
-          <select class="form-select selectdropdownlabel" id="floatingSelect">
-            <option value="1">One</option>
+          <select class="form-select selectdropdownlabel" id="floatingSelect" formControlName="cardCategorie"
+            (change)="onCategoryChange()">
+            <option value="">selecione</option>
+            <option *ngFor="let category of cardCategories" [value]="category.value">{{category.name}}</option>
+          </select>
+          <label for="floatingSelect">Categoria do card</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="padding-bottom:16px;">
+      <div class="col-12">
+        <div class="form-floating" style="color: #ffffff;">
+          <select class="form-select selectdropdownlabel" id="floatingSelect" formControlName="attribute">
+            <option value="">selecione</option>
+            <option *ngFor="let attribute of attributes" [value]="attribute">{{attribute}}</option>
           </select>
           <label for="floatingSelect">Atributo</label>
         </div>
       </div>
     </div>
+
     <div class="row" style="padding-bottom:16px;">
       <div class="col-12">
         <div class="form-floating" style="color: #ffffff;">
-          <select class="form-select selectdropdownlabel" id="floatingSelect">
-            <option value="1">One</option>
+          <select class="form-select selectdropdownlabel" id="floatingSelect" formControlName="cardRace">
+            <option value="">selecione</option>
+            <option *ngFor="let race of cardRaces" [value]="race.value">{{race.name}}</option>
           </select>
-          <label for="floatingSelect">Tipo</label>
+          <label for="floatingSelect">Raça</label>
         </div>
       </div>
     </div>
-    <div class="row" style="padding-bottom:16px;">
-      <div class="col-12">
-        <div class="form-floating" style="color: #ffffff;">
-          <select class="form-select selectdropdownlabel" id="floatingSelect">
-            <option value="1">One</option>
-          </select>
-          <label for="floatingSelect">Raridade</label>
-        </div>
-      </div>
-    </div>
+
   </div>
   <div class="row" style="padding-top: 100px;">
     <div class="col-6">
@@ -60,7 +72,7 @@
     </div>
     <div class="col-6">
       <div class="col-12 btn-group">
-        <button class="btn btn-secondary applyBtn">Aplicar</button>
+        <button class="btn btn-secondary applyBtn" (click)="filter()">Aplicar</button>
       </div>
     </div>
   </div>

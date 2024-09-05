@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs'
 import { CardInterface } from 'src/app/interfaces/cardSearch.interface'
 import { cardSearch } from 'src/app/models/CardSearch.model'
+import { IFilter } from 'src/app/services/filter.context'
 import { YGOservice } from 'src/app/services/YGO.service'
 
 @Component({
@@ -19,7 +20,7 @@ export class SearchCardComponent implements OnInit {
     itemsPerPage: number = 10
     totalItems: number = 0
     paginationText: string
-    params: CardInterface = { offset: 0, num: 10 }
+    params: CardInterface = { fname: '', offset: 0, num: 10 }
     metaPagination: {
         totalPages: number
         nextPage?: string
@@ -36,7 +37,7 @@ export class SearchCardComponent implements OnInit {
     constructor(private YgoService: YGOservice, private router: Router, private location: Location) {
         this.searchSubject.pipe(debounceTime(500), distinctUntilChanged()).subscribe({
             next: data => {
-                this.params = { fname: data.fname, offset: data.offset, num: data.num }
+                this.params = { fname: data.fname, offset: data.offset, num: data.num, ...data }
                 this.searchCards()
             },
             error: error => {
@@ -90,6 +91,24 @@ export class SearchCardComponent implements OnInit {
                 this.txtFoundCards = this.foundCards + ' carta encontrada'
             }
         })
+    }
+
+    searchCardsWithFilter(filter: IFilter) {
+        this.showSideMenu = false
+
+        this.params = {
+            fname: this.params.fname,
+            offset: 0,
+            num: this.itemsPerPage,
+            desc: filter.descCard,
+            type: filter.cardCategorie,
+            race: filter.cardRace ? filter.cardRace : '',
+            attribute: filter.attribute
+        }
+
+        console.log(this.params)
+
+        this.searchSubject.next(this.params)
     }
 
     addCollection(cardId: number) {

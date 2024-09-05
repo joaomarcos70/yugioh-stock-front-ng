@@ -7,6 +7,10 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+
+    @media (max-width: 768px) {
+        padding: 0 16px;
+    }
 }
 
 .header {
@@ -27,8 +31,6 @@
 }
 
 .content {
-    /*     padding-right: 0.5rem;
-    padding-left: 0.5rem; */
     color: #ffffff;
 }
 

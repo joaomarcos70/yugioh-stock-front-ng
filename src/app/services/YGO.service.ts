@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import { environment } from '../../environments/environment'
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
-import { cardSearch } from '../models/CardSearch.model'
 import { RootObject, CardInterface } from '../interfaces/cardSearch.interface'
 import { Observable, Observer, throwError } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
@@ -25,7 +24,10 @@ export class YGOservice {
         let params = new HttpParams()
 
         Object.keys(query).forEach(function (key) {
-            params = params.append(key, query[key])
+            const value = query[key]
+            if (value !== undefined && value !== '') {
+                params = params.append(key, value)
+            }
         })
         return this.http.get<RootObject>(this.apiYgo, { params: params }).pipe(catchError(this.handleError))
     }

@@ -100,10 +100,30 @@
     align-items: flex-start;
     gap: 16px;
     width: 100%;
+
+    @media (max-width: 768px) {
+        gap: 8px;
+    }
+}
+
+.pagination-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+
+    & p {
+        font-size: 14px;
+        color: #c1c5ce;
+        opacity: 50%;
+    }
 }
 
 .header-search .search-card-by-name {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .search-card-by-name input {
@@ -115,7 +135,8 @@
     height: 48px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
+    gap: 16px;
 }
 
 .pagination select {
@@ -128,6 +149,10 @@
 }
 
 @media (max-width: 768px) {
+    .header-search {
+        flex-direction: column;
+        gap: 8px;
+    }
     .card.cardSearchBg {
         width: 100%;
     }
@@ -141,8 +166,5 @@
     .lineCard {
         padding: 8px;
         gap: 8px;
-    }
-    .buttons-card {
-        padding: 0.5rem 0.5rem;
     }
 }
