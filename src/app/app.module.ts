@@ -3,8 +3,12 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
 
-import { registerLocaleData } from '@angular/common'
+import { CurrencyPipe, registerLocaleData } from '@angular/common'
 import pt from '@angular/common/locales/pt'
+import { LOCALE_ID } from '@angular/core'
+import localePt from '@angular/common/locales/pt'
+
+registerLocaleData(localePt)
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NZ_I18N, pt_BR } from 'ng-zorro-antd/i18n'
@@ -49,7 +53,15 @@ registerLocaleData(pt)
         BrowserAnimationsModule,
         ReactiveFormsModule
     ],
-    providers: [ConfigService, LoginService, FilterContext, YGOservice, { provide: NZ_I18N, useValue: pt_BR }],
+    providers: [
+        ConfigService,
+        LoginService,
+        FilterContext,
+        YGOservice,
+        CurrencyPipe,
+        { provide: NZ_I18N, useValue: pt_BR },
+        { provide: LOCALE_ID, useValue: 'pt-BR' }
+    ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
