@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core'
-import { environment } from '../../environments/environment'
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
-import { RootObject, CardInterface } from '../interfaces/cardSearch.interface'
-import { Observable, Observer, throwError } from 'rxjs'
-import { catchError, map } from 'rxjs/operators'
+import { Injectable } from '@angular/core'
+import { Observable, throwError } from 'rxjs'
+import { catchError } from 'rxjs/operators'
+import { environment } from '../../environments/environment'
+import { CardInterface, RootObject } from '../interfaces/cardSearch.interface'
 
 @Injectable({ providedIn: 'root' })
 export class YGOservice {

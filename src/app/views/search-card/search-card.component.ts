@@ -140,9 +140,9 @@ export class SearchCardComponent implements OnInit {
             fname: name,
             num: this.itemsPerPage,
             offset: this.params.offset,
-            level: this.filterContext.getFilter().level,
-            attribute: this.filterContext.getFilter().attribute,
-            type: this.filterContext.getFilter().cardCategorie
+            level: this.filterContext.getFilter()?.level,
+            attribute: this.filterContext.getFilter()?.attribute,
+            type: this.filterContext.getFilter()?.cardCategorie
         })
     }
 

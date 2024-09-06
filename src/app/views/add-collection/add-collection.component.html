@@ -6,97 +6,110 @@
                 <img src="{{ card.card_images[0].image_url }}" />
             </div>
             <div class="info-card-container">
-                <div class="row">
+                <div>
                     <h1 class="titleCardInfo">{{ card.name }}</h1>
                 </div>
-                <div class="row">
-                    <div *ngIf="card.attribute" class="col-6 col-xs-6 col-sm-6 col-md-6 gy-2 gx-2">
+                <div class="attribute-and-level">
+                    <div *ngIf="card.attribute">
                         <h1 class="secondLineCardInfo text-right">
                             <img class="attributeIcon" [src]="commonHelper.transcriptAttributeCard(card.attribute)" />
                             {{ card.attribute }}
                         </h1>
                     </div>
-                    <div *ngIf="card.level" class="col-6 col-xs-6 col-sm-6 col-md-6 gy-2 gx-2">
+                    <div *ngIf="card.level">
                         <h1 class="secondLineCardInfo text-right">
                             <img class="attributeIcon" src="../../../assets/levelIcon/levelStar.svg" />
                             Nível {{ card.level }}
                         </h1>
                     </div>
                 </div>
-                <div class="row text-left">
+                <div class=" text-left">
                     <div class="col-12 col-xs-12 col-sm-12 col-md-12 gy-2 gx-2">
                         <p class="thirdLineCardInfo">{{ card.race }} | {{ card.type }}</p>
                     </div>
                 </div>
-                <div class="row text-left">
-                    <div class="col-12 col-xs-12 col-sm-12 col-md-12 gy-2 gx-2">
+                <div class=" text-left">
+                    <div class="card-description">
                         <p>{{card.desc}}</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 btn-group gy-3">
-                <select class="fullInputSelect" [(ngModel)]="selectedRarity">
-                    <option value="null">Raridade</option>
+
+        <form [formGroup]="addCardForm" class="form-container" (submit)="addCard()">
+            <div style="width: 100%;">
+                <select class="fullInputSelect" formControlName="cardRarity">
+                    <option value="">Raridade</option>
                     <option [ngValue]="rarity" *ngFor="let rarity of rarityList">
                         {{ commonHelper.transcriptRarityCards(rarity) }}
                     </option>
                 </select>
+                <div *ngIf="addCardForm.get('cardRarity').touched && addCardForm.get('cardRarity').invalid">
+                    <small *ngIf="addCardForm.get('cardRarity').hasError('required')">Raridade é obrigatória.</small>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 btn-group gy-3">
-                <select class="fullInputSelect" [(ngModel)]="selectedLanguage">
-                    <option value="null">Idioma</option>
+
+            <div style="width: 100%;">
+                <select class="fullInputSelect" formControlName="cardLanguage">
+                    <option value="">Idioma</option>
                     <option [ngValue]="language" *ngFor="let language of languageList">
                         {{ commonHelper.transcriptLanguageCards(language) }}
                     </option>
                 </select>
+                <div *ngIf="addCardForm.get('cardLanguage').touched && addCardForm.get('cardLanguage').invalid">
+                    <small *ngIf="addCardForm.get('cardLanguage').hasError('required')">Idioma é
+                        obrigatório.</small>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 btn-group gy-3">
-                <select class="fullInputSelect" [(ngModel)]="selectedStateCard">
-                    <option value="null">Estado da carta</option>
+
+            <div style="width: 100%;">
+                <select class="fullInputSelect" formControlName="cardState">
+                    <option value="">Estado da carta</option>
                     <option [ngValue]="stateCard" *ngFor="let stateCard of stateCardList">
                         {{ commonHelper.transcriptCardState(stateCard) }}
                     </option>
                 </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6 gy-3">
-                <div class="countBtn">
-                    <div class="col-4 text-center">
-                        <span>R$</span>
-                    </div>
-                    <div class="col-8 text-left">
-                        <input class="inputCountBtn" [(ngModel)]="priceCard" type="number " />
-                    </div>
+                <div *ngIf="addCardForm.get('cardState').touched && addCardForm.get('cardState').invalid">
+                    <small *ngIf="addCardForm.get('cardState').hasError('required')">Raridade é obrigatória.</small>
                 </div>
             </div>
 
-            <div class="col-6 gy-3">
-                <div class="countBtn">
-                    <div class="col-4 text-center">
-                        <span><i class="ph-minus-bold" (click)="decrementCountCard()"></i></span>
+
+            <div class="action-container">
+                <div style="width: 100%;">
+                    <div class="countBtn">
+                        <div class="col-8 text-left">
+                            <input placeholder="R$ 10,00" class="inputCountBtn" formControlName="cardPrice"
+                                type="number " />
+                        </div>
                     </div>
-                    <div class="col-4 text-center">
-                        <input class="inputCountBtn" max="99" [(ngModel)]="countCard" type="number " />
+                    <div *ngIf="addCardForm.get('cardPrice').touched && addCardForm.get('cardPrice').invalid">
+                        <small *ngIf="addCardForm.get('cardPrice').hasError('required')">Preço é obrigatório.</small>
                     </div>
-                    <div class="col-4 text-center">
-                        <span><i class="ph-plus-bold" (click)="incrementCountCard()"></i></span>
+                </div>
+
+                <div style="width: 100%;">
+                    <div class="countBtn">
+                        <div class="click-btn col-4 text-center" (click)="decrementCountCard()">
+                            <span><i class="ph-minus-bold"></i></span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <input class="inputCountBtn" min="0" max="99" formControlName="cardCount" type="number " />
+                        </div>
+                        <div class="click-btn col-4 text-center" (click)="incrementCountCard()">
+                            <span><i class="ph-plus-bold"></i></span>
+                        </div>
+                    </div>
+                    <div *ngIf="addCardForm.get('cardCount').touched && addCardForm.get('cardCount').invalid">
+                        <small *ngIf="addCardForm.get('cardCount').hasError('required')">Quantidade é
+                            obrigatória.</small>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 btn-group" style="padding-top: 4.5rem; padding-bottom: 1.5rem">
-                <button type="button" class="btn btn-secondary btnAddCollection">Adicionar</button>
+            <div class="add-btn-container" style="padding-top: 4.5rem; padding-bottom: 1.5rem">
+                <button type="submit" class="btn btn-secondary btnAddCollection">Adicionar à coleção</button>
             </div>
-        </div>
+        </form>
     </div>
 </app-base>
