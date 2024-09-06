@@ -1,17 +1,9 @@
 import { CurrencyPipe } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import {
-    AbstractControl,
-    Form,
-    FormBuilder,
-    FormControl,
-    FormGroup,
-    ValidationErrors,
-    ValidatorFn,
-    Validators
-} from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { CardInterface } from 'src/app/interfaces/cardSearch.interface'
+import { ClientService } from 'src/app/services/client.service'
 import { YGOservice } from 'src/app/services/YGO.service'
 import { commonHelper } from 'src/app/shared/helpers/commonHelper'
 
@@ -39,7 +31,8 @@ export class AddCollectionComponent implements OnInit {
         private ygoService: YGOservice,
         private router: Router,
         private fb: FormBuilder,
-        private currencyPipe: CurrencyPipe
+        private currencyPipe: CurrencyPipe,
+        private clientService: ClientService
     ) {}
 
     ngOnInit() {

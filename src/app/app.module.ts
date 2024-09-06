@@ -28,6 +28,7 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
 import { AddCollectionComponent } from './views/add-collection/add-collection.component'
 import { FilterComponent } from './shared/components/filter/filter.component'
 import { FilterContext } from './services/filter.context'
+import { ClientService } from './services/client.service'
 
 registerLocaleData(pt)
 
@@ -59,6 +60,7 @@ registerLocaleData(pt)
         FilterContext,
         YGOservice,
         CurrencyPipe,
+        ClientService,
         { provide: NZ_I18N, useValue: pt_BR },
         { provide: LOCALE_ID, useValue: 'pt-BR' }
     ],
