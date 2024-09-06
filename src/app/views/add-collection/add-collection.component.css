@@ -1,5 +1,32 @@
 .content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+
+    & .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        max-width: 950px;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 400px) {
+            width: 100%;
+        }
+    }
+}
+
+.action-container {
     width: 100%;
+    display: flex;
+    gap: 8px;
 }
 
 .countBtn {
@@ -68,6 +95,7 @@ input::-webkit-inner-spin-button {
     font-size: 0.875rem;
     font-weight: 700;
     border-radius: 8px;
+    width: 100%;
 }
 
 .btnDescription {
@@ -88,14 +116,12 @@ input::-webkit-inner-spin-button {
     display: flex;
     gap: 32px;
     width: 100%;
+    justify-content: center;
 
     & .img-detailed-container {
-        width: 30%;
-        min-width: 170px;
-        height: auto;
-        /*         min-height: 240px;
-        min-width: 170px; */
-
+        position: relative;
+        max-width: 240px;
+        min-height: 180px;
         & img {
             width: 100%;
             height: auto;
@@ -105,14 +131,49 @@ input::-webkit-inner-spin-button {
         width: 50%;
         display: flex;
         flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+
+        & .card-description {
+            width: 100%;
+            max-height: 180px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
 
         & p {
             font-size: 12px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        align-items: center;
+
+        & .info-card-container {
             width: 100%;
-            @media (max-width: 768px) {
-                max-height: 140px;
-                overflow-y: auto;
+        }
+
+        & .img-detailed-container {
+            max-width: 260px;
+            min-height: 250px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & img {
+                max-width: 160px;
+                width: 100%;
+                height: 100%;
             }
         }
     }
+}
+
+.add-btn-container {
+    width: 100%;
 }
