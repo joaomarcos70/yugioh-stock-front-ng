@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
     sendtoBack() {
         this.loginservice.verifyLogin(this.body).subscribe(res => {
+            console.log(res)
             this.router.navigate(['/home'])
         })
     }

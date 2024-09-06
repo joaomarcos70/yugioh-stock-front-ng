@@ -3,15 +3,17 @@ import { AddCollectionComponent } from './views/add-collection/add-collection.co
 import { HomeComponent } from './views/home/home.component'
 import { LoginComponent } from './views/login/login.component'
 import { SearchCardComponent } from './views/search-card/search-card.component'
+import { AuthGuard } from './guards/auth-guard'
 
 export const AppRoutes: Routes = [
     {
-        path: '',
+        path: 'login',
         component: LoginComponent
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'search-card',
