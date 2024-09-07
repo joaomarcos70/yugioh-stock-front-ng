@@ -1,17 +1,16 @@
-import {forOwn} from 'lodash'
+import { forOwn } from 'lodash'
 
 export class Login {
-    email: String = '';
-    password: String = '';
+    email: string = ''
+    password: string = ''
 
     constructor(data?) {
-        this.populate(data);
+        this.populate(data)
     }
-    
+
     populate(data) {
         forOwn(data, (value, key) => {
-            this[key] = value;
-        });
+            this[key] = value
+        })
     }
 }
-

@@ -1,15 +1,24 @@
-import { Injectable } from "@angular/core";
-import { ConfigService } from "../config/config.service";
+import { Injectable } from '@angular/core'
+import { ConfigService } from '../config/config.service'
+import { Observable } from 'rxjs'
 
+export interface IResponseLogin {
+    message: string
+    token: string
+}
 
+export interface ILogin {
+    email: string
+    password: string
+}
 
 @Injectable()
 export class LoginService {
-    constructor(private ConfigService: ConfigService) { }
+    constructor(private ConfigService: ConfigService) {}
 
-    endPoint: String = '/auth/login'
+    endPoint: string = '/auth/login'
 
-    verifyLogin(bodyLogin) {
-        return this.ConfigService.post(this.endPoint, bodyLogin)
+    verifyLogin(bodyLogin: ILogin): Observable<IResponseLogin> {
+        return this.ConfigService.post<IResponseLogin>(this.endPoint, bodyLogin)
     }
 }

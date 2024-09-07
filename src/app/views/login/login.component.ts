@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core'
-import { LoginService } from 'src/app/services/login.service'
+import { IResponseLogin, LoginService } from 'src/app/services/login.service'
 import { Router } from '@angular/router'
 import { Login } from 'src/app/models/Login.model'
+import { ClientService } from 'src/app/services/client.service'
+import { IUser, UserContext } from 'src/app/context/user.context'
+import { TokenContext } from 'src/app/context/token.context'
 
 @Component({
     selector: 'app-login',
@@ -13,16 +16,32 @@ export class LoginComponent implements OnInit {
     isRememberPassword: boolean = false
     showPassword: boolean = true
 
-    constructor(private loginservice: LoginService, private router: Router) {}
+    constructor(
+        private loginservice: LoginService,
+        private router: Router,
+        private clientService: ClientService,
+        private userContext: UserContext,
+        private tokenContext: TokenContext
+    ) {}
 
     ngOnInit() {
         this.revealPassword()
     }
 
     sendtoBack() {
-        this.loginservice.verifyLogin(this.body).subscribe(res => {
-            console.log(res)
-            this.router.navigate(['/home'])
+        this.loginservice.verifyLogin(this.body).subscribe({
+            next: (response: IResponseLogin) => {
+                localStorage.setItem('token', response.token)
+                this.tokenContext.token = response.token
+
+                this.clientService.decodeToken(response.token).subscribe((response: IUser) => {
+                    this.userContext.user = response
+                })
+                this.router.navigate(['/home'])
+            },
+            error: error => {
+                console.log('error', error)
+            }
         })
     }
 
