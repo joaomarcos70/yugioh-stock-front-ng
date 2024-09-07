@@ -7,6 +7,14 @@ import { ClientService } from 'src/app/services/client.service'
 import { YGOservice } from 'src/app/services/YGO.service'
 import { commonHelper } from 'src/app/shared/helpers/commonHelper'
 
+export interface ICardCollection {
+    cardRarity: string
+    cardLanguage: string
+    cardState: string
+    cardPrice: string
+    cardCount: number
+}
+
 @Component({
     selector: 'app-add-collection',
     templateUrl: './add-collection.component.html',
@@ -92,8 +100,23 @@ export class AddCollectionComponent implements OnInit {
 
     addCard() {
         if (this.addCardForm.invalid) {
+            console.log('invalid form')
             this.addCardForm.markAllAsTouched()
             return
         }
+
+        this.clientService
+            .addCardCollection({
+                id: this.params.id,
+                ...(this.addCardForm.value as ICardCollection)
+            })
+            .subscribe({
+                next: () => {
+                    this.router.navigate(['/search-card'])
+                },
+                error: error => {
+                    console.error(error)
+                }
+            })
     }
 }

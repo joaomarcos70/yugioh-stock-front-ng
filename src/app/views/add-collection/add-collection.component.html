@@ -41,7 +41,7 @@
             <div style="width: 100%;">
                 <select class="fullInputSelect" formControlName="cardRarity">
                     <option value="">Raridade</option>
-                    <option [ngValue]="rarity" *ngFor="let rarity of rarityList">
+                    <option [ngValue]="commonHelper.transcriptRarityCards(rarity)" *ngFor="let rarity of rarityList">
                         {{ commonHelper.transcriptRarityCards(rarity) }}
                     </option>
                 </select>
@@ -53,7 +53,8 @@
             <div style="width: 100%;">
                 <select class="fullInputSelect" formControlName="cardLanguage">
                     <option value="">Idioma</option>
-                    <option [ngValue]="language" *ngFor="let language of languageList">
+                    <option [ngValue]="commonHelper.transcriptLanguageCards(language)"
+                        *ngFor="let language of languageList">
                         {{ commonHelper.transcriptLanguageCards(language) }}
                     </option>
                 </select>
@@ -66,7 +67,8 @@
             <div style="width: 100%;">
                 <select class="fullInputSelect" formControlName="cardState">
                     <option value="">Estado da carta</option>
-                    <option [ngValue]="stateCard" *ngFor="let stateCard of stateCardList">
+                    <option [ngValue]="commonHelper.transcriptCardState(stateCard)"
+                        *ngFor="let stateCard of stateCardList">
                         {{ commonHelper.transcriptCardState(stateCard) }}
                     </option>
                 </select>

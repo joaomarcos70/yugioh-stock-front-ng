@@ -60,7 +60,7 @@ export class SearchCardComponent implements OnInit {
     }
 
     previousPage() {
-        this.location.back()
+        this.router.navigate(['/home'])
     }
 
     filterAction() {
