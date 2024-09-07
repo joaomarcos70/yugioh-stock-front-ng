@@ -24,11 +24,13 @@ export const AppRoutes: Routes = [
     },
     {
         path: 'search-card',
-        component: SearchCardComponent
+        component: SearchCardComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'add-collection/:id',
-        component: AddCollectionComponent
+        component: AddCollectionComponent,
+        canActivate: [AuthGuard]
     },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ]

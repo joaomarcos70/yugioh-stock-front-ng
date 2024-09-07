@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { Login } from 'src/app/models/Login.model'
 import { ClientService } from 'src/app/services/client.service'
 import { IUser, UserContext } from 'src/app/context/user.context'
+import { TokenContext } from 'src/app/context/token.context'
 
 @Component({
     selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
         private loginservice: LoginService,
         private router: Router,
         private clientService: ClientService,
-        private userContext: UserContext
+        private userContext: UserContext,
+        private tokenContext: TokenContext
     ) {}
 
     ngOnInit() {
@@ -30,12 +32,11 @@ export class LoginComponent implements OnInit {
         this.loginservice.verifyLogin(this.body).subscribe({
             next: (response: IResponseLogin) => {
                 localStorage.setItem('token', response.token)
+                this.tokenContext.token = response.token
 
                 this.clientService.decodeToken(response.token).subscribe((response: IUser) => {
-                    console.log(response)
                     this.userContext.user = response
                 })
-                console.log(this.userContext.user)
                 this.router.navigate(['/home'])
             },
             error: error => {
