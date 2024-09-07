@@ -29,6 +29,7 @@ import { AddCollectionComponent } from './views/add-collection/add-collection.co
 import { FilterComponent } from './shared/components/filter/filter.component'
 import { FilterContext } from './services/filter.context'
 import { ClientService } from './services/client.service'
+import { UserContext } from './context/user.context'
 
 registerLocaleData(pt)
 
@@ -61,6 +62,7 @@ registerLocaleData(pt)
         YGOservice,
         CurrencyPipe,
         ClientService,
+        UserContext,
         { provide: NZ_I18N, useValue: pt_BR },
         { provide: LOCALE_ID, useValue: 'pt-BR' }
     ],

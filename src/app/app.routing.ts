@@ -4,11 +4,18 @@ import { HomeComponent } from './views/home/home.component'
 import { LoginComponent } from './views/login/login.component'
 import { SearchCardComponent } from './views/search-card/search-card.component'
 import { AuthGuard } from './guards/auth-guard'
+import { LoginGuard } from './guards/login-guard'
 
 export const AppRoutes: Routes = [
     {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [LoginGuard]
     },
     {
         path: 'home',
