@@ -140,9 +140,9 @@ export class SearchCardComponent implements OnInit {
             fname: this.params.fname,
             num: this.itemsPerPage,
             offset: this.params.offset,
-            level: this.filterContext.getFilter().level,
-            attribute: this.filterContext.getFilter().attribute,
-            type: this.filterContext.getFilter().cardCategorie
+            level: this.filterContext.getFilter()?.level,
+            attribute: this.filterContext.getFilter()?.attribute,
+            type: this.filterContext.getFilter()?.cardCategorie
         })
     }
 
@@ -199,5 +199,10 @@ export class SearchCardComponent implements OnInit {
                 console.log(error)
             }
         })
+    }
+
+    fallbackImage(event: Event) {
+        const element = event.target as HTMLImageElement
+        element.src = '../../../assets/images/card-default.webp'
     }
 }

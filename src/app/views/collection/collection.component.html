@@ -2,7 +2,7 @@
     <div class="content">
         <div class="collection-container" *ngFor="let card of cards">
             <div class="img-container">
-                <img [src]="card.cardImage" />
+                <img [src]="card.cardImage" appImageFallback />
             </div>
 
             <div class="info-collection-container">

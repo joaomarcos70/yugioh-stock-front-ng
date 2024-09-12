@@ -33,7 +33,6 @@ export class CollectionComponent implements OnInit {
         this.clientService.getCollection().subscribe({
             next: (res: IDataCollection) => {
                 this.cards = res.data
-                console.log(res)
             },
             error: error => {
                 console.log(error)

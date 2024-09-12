@@ -42,10 +42,10 @@
 
         <div class="card-wrap">
             <div *ngFor="let card of cards let i = index">
-
                 <div class="card cardSearchBg" (click)="addCollection(card.id)">
                     <div class="card-body">
-                        <img class="imgCard" src="{{ card.card_images[0].image_url }}" />
+                        <img loading="lazy" class="imgCard" [src]="card.card_images[0].image_url"
+                            (error)="fallbackImage()" />
                     </div>
 
                     <div class="lineCard">

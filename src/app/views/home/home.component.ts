@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
             .pipe(finalize(() => console.log('finalize')))
             .subscribe({
                 next: (response: any) => {
-                    this.collectionSize = response.data.wants.length
+                    this.collectionSize = response.data.cardCollection.length
                     this.wantsSize = response.data.wants.length
                 },
                 error: error => {

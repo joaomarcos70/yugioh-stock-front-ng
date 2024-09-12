@@ -32,6 +32,7 @@ import { ClientService } from './services/client.service'
 import { UserContext } from './context/user.context'
 import { ApiService } from './services/api.service'
 import { CollectionComponent } from './views/collection/collection.component'
+import { ImageFallbackDirective } from './directives/fallback-image.directive'
 
 registerLocaleData(pt)
 
@@ -45,7 +46,8 @@ registerLocaleData(pt)
         AddCollectionComponent,
         SpinnerComponent,
         FilterComponent,
-        CollectionComponent
+        CollectionComponent,
+        ImageFallbackDirective
     ],
     imports: [
         BrowserModule,
@@ -58,6 +60,7 @@ registerLocaleData(pt)
         BrowserAnimationsModule,
         ReactiveFormsModule
     ],
+    exports: [ImageFallbackDirective],
     providers: [
         ConfigService,
         LoginService,

@@ -2,7 +2,7 @@
     <div class="content">
         <div class="img-info-container">
             <div class="img-detailed-container">
-                <img src="{{ card.card_images[0].image_url }}" />
+                <img [src]="card.card_images[0].image_url" appImageFallback />
             </div>
             <div class="info-card-container">
                 <div>
