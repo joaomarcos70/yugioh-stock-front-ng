@@ -31,8 +31,6 @@ export class ClientService {
     }
 
     addCardCollection(cardData: ICardCollection & { id: number }) {
-        console.log(cardData)
-
         return this.http.post(
             `${this.baseUrl}/users/registerCollection`,
             {
@@ -50,5 +48,42 @@ export class ClientService {
                 }
             }
         )
+    }
+    addCardWants(cardData: ICardCollection & { id: number }) {
+        return this.http.post(
+            `${this.baseUrl}/users/register-wants`,
+            {
+                cardId: cardData.id,
+                cardRarity: cardData.cardRarity,
+                cardLanguage: cardData.cardLanguage,
+                cardState: cardData.cardState,
+                cardPrice: cardData.cardPrice,
+                cardCount: cardData.cardCount
+            },
+            {
+                headers: {
+                    Authorization: this.tokenContext.token,
+                    id: this.userContext.user.id
+                }
+            }
+        )
+    }
+
+    getCollection() {
+        return this.http.get(`${this.baseUrl}/users/collection`, {
+            headers: {
+                Authorization: this.tokenContext.token,
+                id: this.userContext.user.id
+            }
+        })
+    }
+
+    getWants() {
+        return this.http.get(`${this.baseUrl}/users/wants`, {
+            headers: {
+                Authorization: this.tokenContext.token,
+                id: this.userContext.user.id
+            }
+        })
     }
 }

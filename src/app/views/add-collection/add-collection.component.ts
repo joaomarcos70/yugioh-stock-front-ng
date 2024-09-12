@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { CardInterface } from 'src/app/interfaces/cardSearch.interface'
+import { ApiService } from 'src/app/services/api.service'
 import { ClientService } from 'src/app/services/client.service'
-import { YGOservice } from 'src/app/services/YGO.service'
 import { commonHelper } from 'src/app/shared/helpers/commonHelper'
 
 export interface ICardCollection {
@@ -36,18 +36,18 @@ export class AddCollectionComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private ygoService: YGOservice,
         private router: Router,
         private fb: FormBuilder,
         private currencyPipe: CurrencyPipe,
-        private clientService: ClientService
+        private clientService: ClientService,
+        private apiService: ApiService
     ) {}
 
     ngOnInit() {
         this.createForm()
         this.route.params.subscribe(params => (this.params.id = params['id']))
 
-        this.ygoService.get(this.params).subscribe(res => {
+        this.apiService.getCards(this.params).subscribe(res => {
             this.card = res.data[0]
         })
 

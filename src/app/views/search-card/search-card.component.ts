@@ -1,11 +1,10 @@
-import { Location } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs'
 import { CardInterface } from 'src/app/interfaces/cardSearch.interface'
 import { cardSearch } from 'src/app/models/CardSearch.model'
+import { ApiService } from 'src/app/services/api.service'
 import { FilterContext, IFilter } from 'src/app/services/filter.context'
-import { YGOservice } from 'src/app/services/YGO.service'
 
 @Component({
     selector: 'app-search-card',
@@ -34,12 +33,7 @@ export class SearchCardComponent implements OnInit {
 
     showSideMenu: boolean = false
 
-    constructor(
-        private YgoService: YGOservice,
-        private router: Router,
-        private location: Location,
-        private filterContext: FilterContext
-    ) {
+    constructor(private router: Router, private filterContext: FilterContext, private apiService: ApiService) {
         this.searchSubject.pipe(debounceTime(500), distinctUntilChanged()).subscribe({
             next: data => {
                 this.params = { fname: data.fname, offset: data.offset, num: data.num, ...data }
@@ -74,26 +68,44 @@ export class SearchCardComponent implements OnInit {
     }
 
     searchCards() {
-        this.YgoService.get(this.params).subscribe(res => {
-            this.cards = res.data
-            this.foundCards = res.data.length
+        this.apiService.getCards(this.params).subscribe({
+            next: res => {
+                this.cards = res.data
+                this.foundCards = res.data.length
 
-            this.metaPagination = {
-                totalPages: res.meta.total_pages,
-                nextPage: res.meta.next_page,
-                prevPage: res.meta.previous_page,
-                totalItems: res.meta.total_rows,
-                missingPages: res.meta.pages_remaining
-            }
+                this.metaPagination = {
+                    totalPages: res.meta.total_pages,
+                    nextPage: res.meta.next_page,
+                    prevPage: res.meta.previous_page,
+                    totalItems: res.meta.total_rows,
+                    missingPages: res.meta.pages_remaining
+                }
 
-            this.updatePagination()
+                this.updatePagination()
 
-            if (this.foundCards == 0) {
-                this.txtFoundCards = 'Nenhuma carta encontrada'
-            } else if (this.foundCards > 1) {
-                this.txtFoundCards = this.foundCards + ' cartas encontradas'
-            } else {
-                this.txtFoundCards = this.foundCards + ' carta encontrada'
+                if (this.foundCards == 0) {
+                    this.txtFoundCards = 'Nenhuma carta encontrada'
+                } else if (this.foundCards > 1) {
+                    this.txtFoundCards = this.foundCards + ' cartas encontradas'
+                } else {
+                    this.txtFoundCards = this.foundCards + ' carta encontrada'
+                }
+            },
+            error: error => {
+                if (error.status === 400) {
+                    this.cards = []
+                    this.txtFoundCards = 'Nenhuma carta encontrada'
+                    this.foundCards = 0
+                    this.paginationText = 'Página 0 de 0'
+                    this.metaPagination = {
+                        totalPages: 0,
+                        nextPage: '',
+                        prevPage: '',
+                        totalItems: 0,
+                        missingPages: 0
+                    }
+                }
+                console.log(error)
             }
         })
     }
@@ -149,7 +161,7 @@ export class SearchCardComponent implements OnInit {
     previous() {
         if (!this.metaPagination.prevPage) return
 
-        this.YgoService.nextOrPrev(this.metaPagination.prevPage).subscribe({
+        this.apiService.nextOrPrev(this.metaPagination.prevPage).subscribe({
             next: data => {
                 this.cards = data.data
                 this.metaPagination = {
@@ -170,7 +182,7 @@ export class SearchCardComponent implements OnInit {
     next() {
         if (!this.metaPagination.nextPage) return
 
-        this.YgoService.nextOrPrev(this.metaPagination.nextPage).subscribe({
+        this.apiService.nextOrPrev(this.metaPagination.nextPage).subscribe({
             next: data => {
                 this.cards = data.data
                 this.metaPagination = {

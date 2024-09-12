@@ -30,6 +30,7 @@ import { FilterComponent } from './shared/components/filter/filter.component'
 import { FilterContext } from './services/filter.context'
 import { ClientService } from './services/client.service'
 import { UserContext } from './context/user.context'
+import { ApiService } from './services/api.service'
 
 registerLocaleData(pt)
 
@@ -63,6 +64,7 @@ registerLocaleData(pt)
         CurrencyPipe,
         ClientService,
         UserContext,
+        ApiService,
         { provide: NZ_I18N, useValue: pt_BR },
         { provide: LOCALE_ID, useValue: 'pt-BR' }
     ],
