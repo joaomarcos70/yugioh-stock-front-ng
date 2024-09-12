@@ -31,6 +31,7 @@ import { FilterContext } from './services/filter.context'
 import { ClientService } from './services/client.service'
 import { UserContext } from './context/user.context'
 import { ApiService } from './services/api.service'
+import { CollectionComponent } from './views/collection/collection.component'
 
 registerLocaleData(pt)
 
@@ -43,7 +44,8 @@ registerLocaleData(pt)
         SearchCardComponent,
         AddCollectionComponent,
         SpinnerComponent,
-        FilterComponent
+        FilterComponent,
+        CollectionComponent
     ],
     imports: [
         BrowserModule,

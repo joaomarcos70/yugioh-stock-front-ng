@@ -32,14 +32,16 @@ export class ClientService {
 
     addCardCollection(cardData: ICardCollection & { id: number }) {
         return this.http.post(
-            `${this.baseUrl}/users/registerCollection`,
+            `${this.baseUrl}/users/register-collection`,
             {
                 cardId: cardData.id,
                 cardRarity: cardData.cardRarity,
                 cardLanguage: cardData.cardLanguage,
                 cardState: cardData.cardState,
                 cardPrice: cardData.cardPrice,
-                cardCount: cardData.cardCount
+                cardCount: cardData.cardCount,
+                cardType: cardData.cardType,
+                cardName: cardData.cardName
             },
             {
                 headers: {

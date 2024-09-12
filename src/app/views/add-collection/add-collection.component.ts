@@ -13,6 +13,8 @@ export interface ICardCollection {
     cardState: string
     cardPrice: string
     cardCount: number
+    cardType: string
+    cardName: string
 }
 
 @Component({
@@ -100,7 +102,6 @@ export class AddCollectionComponent implements OnInit {
 
     addCard() {
         if (this.addCardForm.invalid) {
-            console.log('invalid form')
             this.addCardForm.markAllAsTouched()
             return
         }
@@ -108,6 +109,8 @@ export class AddCollectionComponent implements OnInit {
         this.clientService
             .addCardCollection({
                 id: this.params.id,
+                cardName: this.card.name,
+                cardType: this.card.type,
                 ...(this.addCardForm.value as ICardCollection)
             })
             .subscribe({

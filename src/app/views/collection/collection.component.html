@@ -1,0 +1,29 @@
+<app-base middleInputHeader="Coleção" leftIconClass="ph-arrow-left-bold" (leftIconAction)="back()">
+    <div class="content">
+        <div class="collection-container" *ngFor="let card of cards">
+            <div class="img-container">
+                <img [src]="card.cardImage" />
+            </div>
+
+            <div class="info-collection-container">
+                <div class="title">
+                    {{card.cardName}}
+                </div>
+                <div class="available-units">
+                    {{card.quantity}} unidades disponíveis
+                </div>
+                <div class="tag-container">
+                    <div class="tag">
+                        {{card.rarity}}
+                    </div>
+                    <div class="tag">
+                        {{card.idiom}}
+                    </div>
+                </div>
+                <div class="price">
+                    {{card.price}}
+                </div>
+            </div>
+        </div>
+    </div>
+</app-base>

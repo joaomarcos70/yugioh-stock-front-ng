@@ -5,6 +5,7 @@ import { LoginComponent } from './views/login/login.component'
 import { SearchCardComponent } from './views/search-card/search-card.component'
 import { AuthGuard } from './guards/auth-guard'
 import { LoginGuard } from './guards/login-guard'
+import { CollectionComponent } from './views/collection/collection.component'
 
 export const AppRoutes: Routes = [
     {
@@ -30,6 +31,11 @@ export const AppRoutes: Routes = [
     {
         path: 'add-collection/:id',
         component: AddCollectionComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'collection',
+        component: CollectionComponent,
         canActivate: [AuthGuard]
     },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }

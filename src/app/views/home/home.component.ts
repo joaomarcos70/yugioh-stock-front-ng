@@ -35,4 +35,8 @@ export class HomeComponent implements OnInit {
     sendToSearch() {
         this.router.navigate(['search-card'])
     }
+
+    collection() {
+        this.router.navigate(['collection'])
+    }
 }
